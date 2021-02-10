@@ -35,5 +35,6 @@ body {
   padding: 0;
   height: 100vh;
   width: 100vw;
+  background-color: slategray;
 }
 </style>
