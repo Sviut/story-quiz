@@ -30,7 +30,6 @@ export default {
 
 <style scoped>
 .wrapper {
-  padding: 20px;
   display: flex;
   flex-direction: column;
 }
@@ -84,24 +83,5 @@ export default {
   text-align: center;
   font-weight: bold;
   margin-right: 15px;
-}
-
-.progress-wrapper {
-  width: 100%;
-}
-
-.progress-bar {
-  background-color: #fff;
-  height: 4px;
-  width: 100%;
-  animation: grow 5s linear;
-  transform-origin: left;
-  border-radius: 5px;
-}
-
-@keyframes grow {
-  0% {
-    transform: scaleX(0);
-  }
 }
 </style>

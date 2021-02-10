@@ -1,15 +1,20 @@
 <template>
   <div id="app">
-    <QuestionCard :quiz="quizList[0]"/>
+    <div class="container">
+      <ProgressBar/>
+      <QuestionCard :quiz="quizList[0]"/>
+    </div>
   </div>
 </template>
 
 <script>
 import QuestionCard from '@/components/QuestionCard'
+import ProgressBar from '@/components/ProgressBar'
 
 export default {
   name: 'App',
   components: {
+    ProgressBar,
     QuestionCard,
   },
   data: function () {
@@ -49,5 +54,9 @@ body {
   height: 100vh;
   width: 100vw;
   background-color: slategray;
+}
+
+.container {
+  padding: 20px;
 }
 </style>
