@@ -5,19 +5,11 @@
     </div>
 
     <div class="card-wrapper">
-      <div class="card-title">Что для вас больше всего важно в мастере?</div>
+      <div class="card-title">{{ quiz.title }}</div>
       <div class="card-answers">
-        <div class="card-answer">
-          <div class="card-answer__icon">A</div>
-          <div class="card-answer__text">Вариант 1</div>
-        </div>
-        <div class="card-answer">
-          <div class="card-answer__icon">B</div>
-          <div class="card-answer__text">Фон подложка надстраиваемый нет?</div>
-        </div>
-        <div class="card-answer">
-          <div class="card-answer__icon">C</div>
-          <div class="card-answer__text">Вариант 3</div>
+        <div :key="idx" v-for="(answer, idx) in quiz.answers" class="card-answer">
+          <div class="card-answer__icon">{{ String.fromCharCode(65 + idx) }}</div>
+          <div class="card-answer__text">{{ answer.text }}</div>
         </div>
       </div>
     </div>
@@ -27,6 +19,16 @@
 <script>
 export default {
   name: 'QuestionCard',
+  props: {
+    quiz: {
+      type: Object,
+      required: true,
+    },
+  },
+  data: function () {
+    return {}
+  },
+  methods: {},
 }
 </script>
 
@@ -63,6 +65,14 @@ export default {
   padding: 0 10px;
   height: 55px;
   text-align: left;
+  transition: all 0.2s ease-in-out;
+}
+
+.card-answer__selected {
+  background-color: green;
+  color: white;
+  border: 1px solid white;
+  transition: all 0.2s ease-in-out;
 }
 
 .card-answer__icon {

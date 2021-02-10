@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <QuestionCard/>
+    <QuestionCard :quiz="quizList[0]"/>
   </div>
 </template>
 
@@ -11,6 +11,19 @@ export default {
   name: 'App',
   components: {
     QuestionCard,
+  },
+  data: function () {
+    return {
+      quizList: [
+        {
+          title: 'Ваш вопрос для квиза?',
+          answers: [
+            { text: 'Ответ первый' },
+            { text: 'Вариант номер два' },
+            { text: 'Третий ответ' }],
+        },
+      ],
+    }
   },
 }
 </script>
