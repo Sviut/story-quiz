@@ -3,7 +3,7 @@
     <div class="progress-bar" :key="idx" v-for="idx in barCount">
       <div
           class="progress-bar__white"
-          :class="{'progress-bar__animation': isCurrent(idx - 1)}"
+          :class="{'progress-bar__animation': isCurrent(idx - 1), 'fulled': isFull(idx -1) }"
       ></div>
     </div>
   </div>
@@ -25,6 +25,9 @@ export default {
   methods: {
     isCurrent (idx) {
       return idx === this.currentBar
+    },
+    isFull (idx) {
+      return idx < this.currentBar
     },
   },
 }
@@ -49,6 +52,10 @@ export default {
   height: 4px;
   width: 100%;
   border-radius: 5px;
+}
+
+.fulled {
+  background-color: white;
 }
 
 .progress-bar__animation {

@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div class="container">
-      <ProgressBar :bar-count="4" :current-bar="currentQuiz"/>
-      <QuestionCard :quiz="quizList[0]"/>
+      <ProgressBar :bar-count="quizList.length" :current-bar="currentQuiz"/>
+      <QuestionCard :quiz="quizList[this.currentQuiz]"/>
     </div>
   </div>
 </template>
@@ -27,8 +27,22 @@ export default {
             { text: 'Вариант номер два' },
             { text: 'Третий ответ' }],
         },
+        {
+          title: 'Ваш Второй Вопрос?',
+          answers: [
+            { text: 'Ответ первый' },
+            { text: 'Вариант номер два' },
+            { text: 'Третий ответ' }],
+        },
+        {
+          title: 'Ваш Третий вопрос?',
+          answers: [
+            { text: 'Ответ первый' },
+            { text: 'Вариант номер два' },
+            { text: 'Третий ответ' }],
+        },
       ],
-      currentQuiz: 0,
+      currentQuiz: 1,
     }
   },
 }
