@@ -1,9 +1,5 @@
 <template>
   <div class="wrapper">
-    <div class="progress-wrapper">
-      <div class="progress-bar"></div>
-    </div>
-
     <div class="card-wrapper">
       <div class="card-title">{{ quiz.title }}</div>
       <div class="card-answers">
