@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="container">
-      <ProgressBar/>
+      <ProgressBar :bar-count="4" :current-bar="currentQuiz"/>
       <QuestionCard :quiz="quizList[0]"/>
     </div>
   </div>
@@ -28,6 +28,7 @@ export default {
             { text: 'Третий ответ' }],
         },
       ],
+      currentQuiz: 0,
     }
   },
 }
