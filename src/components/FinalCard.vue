@@ -8,15 +8,27 @@
         именно для Вас!
       </h4>
 
-      <input class="input" placeholder="Ваше имя">
-      <input class="input" placeholder="Ваш номер телефона">
+      <form>
+        <input v-model="contact.name" required class="input" placeholder="Ваше имя">
+        <input v-model="contact.phone" required type="tel" class="input" placeholder="Ваш номер телефона">
+      </form>
     </div>
+
+    <button :disabled="!contact.name || !contact.phone" class="btn">Записаться на лазерную эпиляцию за 190 руб.</button>
   </div>
 </template>
 
 <script>
 export default {
   name: 'FinalCard',
+  data: function () {
+    return {
+      contact: {
+        name: '',
+        phone: '',
+      },
+    }
+  },
 }
 </script>
 
@@ -31,10 +43,9 @@ export default {
 .card-wrapper {
   padding: 1rem;
   width: 100%;
-  border-radius: 25px;
+  border-radius: 25px 25px 0 0;
   background-color: white;
   position: relative;
-  margin-bottom: 20px;
 }
 
 .avatar-circle {
@@ -66,9 +77,8 @@ export default {
 
 .input {
   width: 100%;
-  padding: 15px 20px;
+  padding: 10px 20px;
   margin-bottom: 10px;
-  border: 1px solid gray;
   border-radius: 50px;
   height: 55px;
   text-align: left;
@@ -83,6 +93,25 @@ export default {
 
 .input:focus {
   outline: none;
+}
+
+.btn {
+  width: 100%;
+  border: none;
+  background-color: rgb(1, 148, 254);
+  color: white;
+  border-radius: 0 0 25px 25px;
+  height: 50px;
+  outline: none;
+  text-transform: uppercase;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:disabled {
+  background-color: rgb(224, 224, 224);
 }
 
 </style>
