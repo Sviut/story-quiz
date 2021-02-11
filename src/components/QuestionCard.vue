@@ -1,14 +1,22 @@
 <template>
   <div class="wrapper">
     <div class="card-wrapper">
-      <div class="card-title">{{ quiz.title }}</div>
+      <div
+          class="card-title"
+          :style="{background: getGradient}">{{ quiz.title }}
+      </div>
       <div class="card-answers">
         <div
             v-for="(answer, idx) in quiz.answers" class="card-answer"
             :class="{'card-answer__selected' : selectedAnswer === answer}"
             @click="selectAnswer(answer)" :key="idx"
         >
-          <div class="card-answer__icon">{{ String.fromCharCode(65 + idx) }}</div>
+          <div
+              class="card-answer__icon"
+              :style="{ color: getIconColor, border: '2px solid ' + getIconColor }"
+          >
+            {{ String.fromCharCode(65 + idx) }}
+          </div>
           <div class="card-answer__text">{{ answer.text }}</div>
         </div>
       </div>
@@ -17,6 +25,8 @@
 </template>
 
 <script>
+const { COLORS } = require('@/constants')
+
 export default {
   name: 'QuestionCard',
   props: {
@@ -36,7 +46,14 @@ export default {
       this.$emit('addNewAnswer', { title: this.quiz.title, answer: this.selectedAnswer.text })
     },
   },
-  computed: {},
+  computed: {
+    getGradient () {
+      return `linear-gradient(to right, rgb(${COLORS[0].from}), rgb(${COLORS[0].to}))`
+    },
+    getIconColor () {
+      return `rgb(${COLORS[0].to})`
+    },
+  },
 
 }
 </script>
@@ -55,7 +72,6 @@ export default {
 }
 
 .card-title {
-  background-color: dodgerblue;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   padding: 20px;
@@ -80,7 +96,7 @@ export default {
 }
 
 .card-answer__selected {
-  background-color: green;
+  background-color: rgb(85, 195, 61);
   color: white;
   border: 1px solid white;
   transition: all 0.2s ease-in-out;
@@ -90,12 +106,10 @@ export default {
   display: flex;
   align-items: center;
   border-radius: 50%;
-  width: 28px;
-  height: 28px;
-  padding: 6px;
+  width: 30px;
+  height: 30px;
+  padding: 7.5px;
   background: #fff;
-  color: deepskyblue;
-  border: 2px solid deepskyblue;
   text-align: center;
   font-weight: bold;
   margin-right: 15px;
