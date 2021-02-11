@@ -3,11 +3,16 @@
     <div class="card-wrapper">
       <div class="card-title">{{ quiz.title }}</div>
       <div class="card-answers">
-        <div :key="idx" v-for="(answer, idx) in quiz.answers" class="card-answer">
+        <div
+            v-for="(answer, idx) in quiz.answers" class="card-answer"
+            :class="{'card-answer__selected' : selectedAnswer === answer}"
+            @click="selectAnswer(answer)" :key="idx"
+        >
           <div class="card-answer__icon">{{ String.fromCharCode(65 + idx) }}</div>
           <div class="card-answer__text">{{ answer.text }}</div>
         </div>
       </div>
+      {{ this.selectedAnswer }}
     </div>
   </div>
 </template>
@@ -22,9 +27,17 @@ export default {
     },
   },
   data: function () {
-    return {}
+    return {
+      selectedAnswer: '',
+    }
   },
-  methods: {},
+  methods: {
+    selectAnswer (answer) {
+      this.selectedAnswer = answer
+    },
+  },
+  computed: {},
+
 }
 </script>
 

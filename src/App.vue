@@ -47,9 +47,9 @@ export default {
   },
   methods: {
     nextQuiz () {
-      setTimeout(() => {
-        this.currentQuiz = this.currentQuiz + 1
-      }, 300)
+      // setTimeout(() => {
+      // this.currentQuiz = this.currentQuiz + 1
+      // }, 300)
     },
   },
 }
