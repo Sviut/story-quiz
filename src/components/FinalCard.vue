@@ -4,7 +4,12 @@
       <div class="avatar-circle"></div>
       <div class="avatar-img"></div>
 
-      <div class="card-title">Оставьте номер телефона, мы с вами свяжемся</div>
+      <h4 class="card-title">Укажите ваши контактные данные, что бы мы могли забронировать предложение за 190 руб.
+        именно для Вас!
+      </h4>
+
+      <input class="input" placeholder="Ваше имя">
+      <input class="input" placeholder="Ваш номер телефона">
     </div>
   </div>
 </template>
@@ -19,11 +24,12 @@ export default {
 .wrapper {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
 
 .card-wrapper {
-  padding: 2rem 1rem;
-  margin-top: 50%;
+  padding: 1rem;
   width: 100%;
   border-radius: 25px;
   background-color: white;
@@ -51,6 +57,32 @@ export default {
   width: 52px;
   border-radius: 50%;
   background-color: red;
+}
+
+.card-title {
+  text-align: left;
+  line-height: 16px;
+}
+
+.input {
+  width: 100%;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border: 1px solid gray;
+  border-radius: 50px;
+  height: 55px;
+  text-align: left;
+  background-color: rgb(224, 224, 224);
+  border: none;
+  font-size: 1.5rem;
+}
+
+.input::placeholder {
+  font-size: 1rem;
+}
+
+.input:focus {
+  outline: none;
 }
 
 </style>

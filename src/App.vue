@@ -91,5 +91,6 @@ body {
 
 .container {
   padding: 20px;
+  height: 100%;
 }
 </style>
