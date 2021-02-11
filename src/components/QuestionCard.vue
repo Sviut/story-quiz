@@ -73,7 +73,10 @@ export default {
   padding: 0 10px;
   height: 55px;
   text-align: left;
-  transition: all 0.2s ease-in-out;
+}
+
+.card-answer:active {
+  transform: scale(1.05);
 }
 
 .card-answer__selected {
