@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: 'LeadsPage',
+  name: 'FinalCard',
 }
 </script>
 

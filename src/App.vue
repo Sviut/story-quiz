@@ -11,7 +11,7 @@
 <script>
 // import QuestionCard from '@/components/QuestionCard'
 // import ProgressBar from '@/components/ProgressBar'
-import LeadsPage from '@/components/LeadsPage'
+import LeadsPage from '@/components/FinalCard'
 
 export default {
   name: 'App',
