@@ -14,7 +14,9 @@
       </form>
     </div>
 
-    <button :disabled="!contact.name || !contact.phone" class="btn">Записаться на лазерную эпиляцию за 190 руб.</button>
+    <button @click="submit" :disabled="!contact.name || !contact.phone" class="btn">Записаться на лазерную эпиляцию за
+      190 руб.
+    </button>
   </div>
 </template>
 
@@ -29,6 +31,11 @@ export default {
       },
     }
   },
+  methods: {
+    submit () {
+      this.$emit('submit', this.contact)
+    },
+  },
 }
 </script>
 
@@ -38,6 +45,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  background-color: var(--var-bg-color)
 }
 
 .card-wrapper {

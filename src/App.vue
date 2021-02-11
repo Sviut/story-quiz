@@ -3,7 +3,7 @@
     <div class="container">
       <!--      <ProgressBar :bar-count="quizList.length" :current-bar="currentQuiz"/>-->
       <!--      <QuestionCard @addNewAnswer="addNewAnswer" :quiz="quizList[this.currentQuiz]"/>-->
-      <LeadsPage/>
+      <LeadsPage @submit="submitResults"/>
     </div>
   </div>
 </template>
@@ -62,11 +62,19 @@ export default {
         this.disableQuiz = false
       }, 500)
     },
+    submitResults (contact) {
+      console.log(contact, this.answers)
+    },
   },
 }
 </script>
 
 <style>
+
+:root {
+  --var-bg-color: rgb(249, 163, 148);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -90,6 +98,7 @@ body {
 }
 
 .container {
+  background-color: var(--var-bg-color);
   padding: 20px;
   height: 100%;
 }

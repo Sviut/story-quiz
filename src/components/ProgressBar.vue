@@ -38,6 +38,7 @@ export default {
   width: 100%;
   display: flex;
   flex-wrap: nowrap;
+  background-color: var(--var-bg-color);
 }
 
 .progress-bar {
