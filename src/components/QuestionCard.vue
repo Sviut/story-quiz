@@ -12,7 +12,6 @@
           <div class="card-answer__text">{{ answer.text }}</div>
         </div>
       </div>
-      {{ this.selectedAnswer }}
     </div>
   </div>
 </template>
@@ -34,6 +33,7 @@ export default {
   methods: {
     selectAnswer (answer) {
       this.selectedAnswer = answer
+      this.$emit('addNewAnswer', { title: this.quiz.title, answer: this.answer })
     },
   },
   computed: {},

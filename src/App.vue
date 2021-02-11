@@ -2,7 +2,7 @@
   <div id="app">
     <div class="container">
       <ProgressBar :bar-count="quizList.length" :current-bar="currentQuiz"/>
-      <QuestionCard @click.native="nextQuiz" :quiz="quizList[this.currentQuiz]"/>
+      <QuestionCard @addNewAnswer="addNewAnswer" :quiz="quizList[this.currentQuiz]"/>
     </div>
   </div>
 </template>
@@ -46,7 +46,8 @@ export default {
     }
   },
   methods: {
-    nextQuiz () {
+    addNewAnswer (answer) {
+      console.log(answer)
       // setTimeout(() => {
       // this.currentQuiz = this.currentQuiz + 1
       // }, 300)
