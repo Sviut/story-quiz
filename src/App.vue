@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <div class="container">
-      <ProgressBar :bar-count="quizList.length" :current-bar="currentQuiz"/>
-      <QuestionCard @addNewAnswer="addNewAnswer" :quiz="quizList[this.currentQuiz]"/>
-      <!--      <LeadsPage @submit="submitResults"/>-->
+      <div v-if="!isLastQuestion">
+        <ProgressBar :bar-count="quizList.length" :current-bar="currentQuiz"/>
+        <QuestionCard @addNewAnswer="addNewAnswer" :quiz="quizList[this.currentQuiz]"/>
+      </div>
+      <LeadsPage v-else @submit="submitResults"/>
     </div>
   </div>
 </template>
@@ -11,12 +13,12 @@
 <script>
 import QuestionCard from '@/components/QuestionCard'
 import ProgressBar from '@/components/ProgressBar'
-// import LeadsPage from '@/components/FinalCard'
+import LeadsPage from '@/components/FinalCard'
 
 export default {
   name: 'App',
   components: {
-    // LeadsPage,
+    LeadsPage,
     ProgressBar,
     QuestionCard,
   },
@@ -53,8 +55,8 @@ export default {
   methods: {
     addNewAnswer (answer) {
       if (this.disableQuiz) {return}
-
       this.disableQuiz = true
+
       this.answers.push(answer)
 
       setTimeout(() => {
@@ -63,7 +65,12 @@ export default {
       }, 500)
     },
     submitResults (contact) {
-      console.log(contact, this.answers)
+      console.log({ ...contact, ...this.answers })
+    },
+  },
+  computed: {
+    isLastQuestion () {
+      return this.quizList.length === this.currentQuiz
     },
   },
 }

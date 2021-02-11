@@ -33,7 +33,7 @@ export default {
   methods: {
     selectAnswer (answer) {
       this.selectedAnswer = answer
-      this.$emit('addNewAnswer', { title: this.quiz.title, answer: this.answer })
+      this.$emit('addNewAnswer', { title: this.quiz.title, answer: this.selectedAnswer.text })
     },
   },
   computed: {},
