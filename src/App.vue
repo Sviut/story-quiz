@@ -1,24 +1,24 @@
 <template>
   <div id="app">
     <div class="container">
-      <!--      <ProgressBar :bar-count="quizList.length" :current-bar="currentQuiz"/>-->
-      <!--      <QuestionCard @addNewAnswer="addNewAnswer" :quiz="quizList[this.currentQuiz]"/>-->
-      <LeadsPage @submit="submitResults"/>
+      <ProgressBar :bar-count="quizList.length" :current-bar="currentQuiz"/>
+      <QuestionCard @addNewAnswer="addNewAnswer" :quiz="quizList[this.currentQuiz]"/>
+      <!--      <LeadsPage @submit="submitResults"/>-->
     </div>
   </div>
 </template>
 
 <script>
-// import QuestionCard from '@/components/QuestionCard'
-// import ProgressBar from '@/components/ProgressBar'
-import LeadsPage from '@/components/FinalCard'
+import QuestionCard from '@/components/QuestionCard'
+import ProgressBar from '@/components/ProgressBar'
+// import LeadsPage from '@/components/FinalCard'
 
 export default {
   name: 'App',
   components: {
-    LeadsPage,
-    // ProgressBar,
-    // QuestionCard,
+    // LeadsPage,
+    ProgressBar,
+    QuestionCard,
   },
   data: function () {
     return {

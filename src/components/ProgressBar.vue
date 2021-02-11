@@ -42,8 +42,8 @@ export default {
 }
 
 .progress-bar {
-  background-color: darkgray;
-  height: 4px;
+  background-color: lightgray;
+  height: 5px;
   width: 100%;
   border-radius: 5px;
   margin-right: 5px;
@@ -61,7 +61,7 @@ export default {
 
 .progress-bar__animation {
   background-color: white;
-  animation: grow 5s linear;
+  animation: grow 7s linear;
   transform-origin: left;
 }
 
