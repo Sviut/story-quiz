@@ -4,6 +4,7 @@
       <ProgressBar :bar-count="quizList.length" :current-bar="currentQuiz"/>
       <QuestionCard @addNewAnswer="addNewAnswer" :quiz="quizList[this.currentQuiz]"/>
     </div>
+    {{ this.answers }}
   </div>
 </template>
 
@@ -43,14 +44,21 @@ export default {
         },
       ],
       currentQuiz: 0,
+      answers: [],
+      disableQuiz: false,
     }
   },
   methods: {
     addNewAnswer (answer) {
-      console.log(answer)
-      // setTimeout(() => {
-      // this.currentQuiz = this.currentQuiz + 1
-      // }, 300)
+      if (this.disableQuiz) {return}
+
+      this.disableQuiz = true
+      this.answers.push(answer)
+
+      setTimeout(() => {
+        this.currentQuiz = this.currentQuiz + 1
+        this.disableQuiz = false
+      }, 500)
     },
   },
 }
