@@ -35,6 +35,7 @@ export default {
 
 <style scoped>
 .progress-wrapper {
+  padding: 20px 20px 0 20px;
   width: 100%;
   display: flex;
   flex-wrap: nowrap;
