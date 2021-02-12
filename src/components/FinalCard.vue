@@ -123,6 +123,7 @@ export default {
 .icons-wrapper {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .share-link {

@@ -1,35 +1,38 @@
 <template>
   <div id="app">
     <div class="main">
-      <!--      <ProgressBar :bar-count="quizList.length" :current-bar="currentQuiz"/>-->
+      <ProgressBar
+          v-if="currentQuizCard.type !== 'final'"
+          :bar-count="quizList.length"
+          :current-bar="currentQuiz"
+      />
 
-      <!--      <FirstPage @clickOnButton="nextQuiz" v-if="currentQuizCard.type === 'first'"/>-->
+      <FirstPage @clickOnButton="nextQuiz" v-if="currentQuizCard.type === 'first'"/>
 
-      <!--      <QuestionCard v-if="currentQuizCard.type === 'question'" @addNewAnswer="addNewAnswer" :quiz="currentQuizCard"/>-->
+      <QuestionCard v-if="currentQuizCard.type === 'question'" @addNewAnswer="addNewAnswer" :quiz="currentQuizCard"/>
 
-      <!--      <ContactCard v-if="currentQuizCard.type === 'form'" @submit="submitResults"/>-->
+      <ContactCard v-if="currentQuizCard.type === 'form'" @submit="submitResults"/>
 
-      <FinalCard/>
+      <FinalCard v-if="currentQuizCard.type === 'final'"/>
     </div>
   </div>
 </template>
 
 <script>
-// import QuestionCard from '@/components/QuestionCard'
-// import ProgressBar from '@/components/ProgressBar'
-// import ContactCard from '@/components/ContactCard'
-// import FirstPage from '@/components/FirstPage'
-
+import QuestionCard from '@/components/QuestionCard'
+import ProgressBar from '@/components/ProgressBar'
+import ContactCard from '@/components/ContactCard'
+import FirstPage from '@/components/FirstPage'
 import FinalCard from '@/components/FinalCard'
 
 export default {
   name: 'App',
   components: {
     FinalCard,
-    // FirstPage,
-    // ContactCard,
-    // ProgressBar,
-    // QuestionCard,
+    FirstPage,
+    ContactCard,
+    ProgressBar,
+    QuestionCard,
   },
   data: function () {
     return {
@@ -64,6 +67,9 @@ export default {
         {
           type: 'form',
         },
+        {
+          type: 'final',
+        },
       ],
       currentQuiz: 0,
       answers: [],
@@ -78,15 +84,15 @@ export default {
       this.answers.push(answer)
 
       setTimeout(() => {
-        this.currentQuiz = this.currentQuiz + 1
+        this.nextQuiz()
         this.disableQuiz = false
       }, 500)
     },
     nextQuiz () {
-      console.log('aa')
       this.currentQuiz = this.currentQuiz + 1
     },
     submitResults (contact) {
+      this.nextQuiz()
       console.log({ ...contact, ...this.answers })
     },
   },
