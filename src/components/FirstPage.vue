@@ -37,7 +37,7 @@ export default {
 
 .image-container {
   height: 40%;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 .image-container img {
@@ -53,7 +53,7 @@ export default {
 .text-title {
   font-size: 1.2rem;
   line-height: 1.2rem;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .text-subtitle {
