@@ -6,8 +6,8 @@
       <FirstPage @clickOnButton="nextQuiz" v-if="currentQuizCard.type === 'first'"/>
 
       <QuestionCard v-if="currentQuizCard.type === 'question'" @addNewAnswer="addNewAnswer" :quiz="currentQuizCard"/>
+      <ContactCard v-if="currentQuizCard.type === 'form'" @submit="submitResults"/>
 
-      <LeadsPage v-if="currentQuizCard.type === 'form'" @submit="submitResults"/>
     </div>
   </div>
 </template>
@@ -15,14 +15,14 @@
 <script>
 import QuestionCard from '@/components/QuestionCard'
 import ProgressBar from '@/components/ProgressBar'
-import LeadsPage from '@/components/FinalCard'
+import ContactCard from '@/components/ContactCard'
 import FirstPage from '@/components/FirstPage'
 
 export default {
   name: 'App',
   components: {
     FirstPage,
-    LeadsPage,
+    ContactCard,
     ProgressBar,
     QuestionCard,
   },

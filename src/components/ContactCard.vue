@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: 'FinalCard',
+  name: 'ContactCard',
   data: function () {
     return {
       contact: {
