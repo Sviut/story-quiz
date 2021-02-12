@@ -1,30 +1,35 @@
 <template>
   <div id="app">
     <div class="main">
-      <ProgressBar :bar-count="quizList.length" :current-bar="currentQuiz"/>
+      <!--      <ProgressBar :bar-count="quizList.length" :current-bar="currentQuiz"/>-->
 
-      <FirstPage @clickOnButton="nextQuiz" v-if="currentQuizCard.type === 'first'"/>
+      <!--      <FirstPage @clickOnButton="nextQuiz" v-if="currentQuizCard.type === 'first'"/>-->
 
-      <QuestionCard v-if="currentQuizCard.type === 'question'" @addNewAnswer="addNewAnswer" :quiz="currentQuizCard"/>
-      <ContactCard v-if="currentQuizCard.type === 'form'" @submit="submitResults"/>
+      <!--      <QuestionCard v-if="currentQuizCard.type === 'question'" @addNewAnswer="addNewAnswer" :quiz="currentQuizCard"/>-->
 
+      <!--      <ContactCard v-if="currentQuizCard.type === 'form'" @submit="submitResults"/>-->
+
+      <FinalCard/>
     </div>
   </div>
 </template>
 
 <script>
-import QuestionCard from '@/components/QuestionCard'
-import ProgressBar from '@/components/ProgressBar'
-import ContactCard from '@/components/ContactCard'
-import FirstPage from '@/components/FirstPage'
+// import QuestionCard from '@/components/QuestionCard'
+// import ProgressBar from '@/components/ProgressBar'
+// import ContactCard from '@/components/ContactCard'
+// import FirstPage from '@/components/FirstPage'
+
+import FinalCard from '@/components/FinalCard'
 
 export default {
   name: 'App',
   components: {
-    FirstPage,
-    ContactCard,
-    ProgressBar,
-    QuestionCard,
+    FinalCard,
+    // FirstPage,
+    // ContactCard,
+    // ProgressBar,
+    // QuestionCard,
   },
   data: function () {
     return {
