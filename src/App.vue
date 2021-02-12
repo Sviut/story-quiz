@@ -110,7 +110,6 @@ body {
 
 .container {
   background-color: var(--var-bg-color);
-  padding: 20px;
   height: 100%;
 }
 </style>

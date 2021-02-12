@@ -4,7 +4,7 @@
       <img src="./assets/images/lazer.jpg" alt="">
     </div>
     <div class="text-container">
-      <div class="test-title">
+      <div class="text-title">
         Ответьте на несколько простых вопросов и мы запишем вас на процедуру за 190 руб.
       </div>
       <div class="text-subtitle">
@@ -37,6 +37,7 @@ export default {
 
 .image-container {
   height: 40%;
+  margin-bottom: 20px;
 }
 
 .image-container img {
@@ -46,7 +47,19 @@ export default {
 }
 
 .text-container {
-  /*height: %;*/
+
+}
+
+.text-title {
+  font-size: 1.2rem;
+  line-height: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.text-subtitle {
+  font-size: 0.5rem;
+  margin-bottom: 10px;
+  color: white;
 }
 
 .btn {
@@ -57,5 +70,13 @@ export default {
   padding: 15px 25px;
   border-radius: 25px;
   font-size: 1rem;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
 }
 </style>
