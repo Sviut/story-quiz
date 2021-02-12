@@ -5,8 +5,7 @@
       <div class="avatar-img"></div>
 
       <h4 class="card-title">Укажите ваши контактные данные, что бы мы могли забронировать предложение за 190 руб.
-        именно для Вас!
-      </h4>
+        именно для Вас!</h4>
 
       <form>
         <input v-model="contact.name" required class="input" placeholder="Ваше имя">
@@ -80,8 +79,8 @@ export default {
 }
 
 .card-title {
-  text-align: left;
-  line-height: 16px;
+  /*text-align: left;*/
+  line-height: 1rem;
 }
 
 .input {
