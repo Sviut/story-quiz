@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="image-container">
-      <img src="./assets/images/lazer.jpg" alt="">
+      <img src="../assets/images/lazer.jpg" alt="">
     </div>
     <div class="text-container">
       <div class="text-title">

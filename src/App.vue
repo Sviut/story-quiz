@@ -1,12 +1,10 @@
 <template>
   <div id="app">
     <div class="main">
-      <!--      <FirstPage/>-->
-      <div v-if="!isLastQuestion">
-        <ProgressBar :bar-count="quizList.length" :current-bar="currentQuiz"/>
-        <QuestionCard @addNewAnswer="addNewAnswer" :quiz="quizList[this.currentQuiz]"/>
-      </div>
-      <LeadsPage v-else @submit="submitResults"/>
+      <ProgressBar :bar-count="quizList.length + 1" :current-bar="currentQuiz"/>
+      <FirstPage v-if="currentQuizCard.type === 'first'"/>
+      <QuestionCard v-if="currentQuizCard.type === 'question'" @addNewAnswer="addNewAnswer" :quiz="currentQuizCard"/>
+      <LeadsPage v-if="currentQuizCard.type === 'form'" @submit="submitResults"/>
     </div>
   </div>
 </template>
@@ -15,12 +13,12 @@
 import QuestionCard from '@/components/QuestionCard'
 import ProgressBar from '@/components/ProgressBar'
 import LeadsPage from '@/components/FinalCard'
-// import FirstPage from '@/FirstPage'
+import FirstPage from '@/components/FirstPage'
 
 export default {
   name: 'App',
   components: {
-    // FirstPage,
+    FirstPage,
     LeadsPage,
     ProgressBar,
     QuestionCard,
@@ -29,6 +27,10 @@ export default {
     return {
       quizList: [
         {
+          type: 'first',
+        },
+        {
+          type: 'question',
           title: 'Ваш вопрос для квиза?',
           answers: [
             { text: 'Ответ первый' },
@@ -36,6 +38,7 @@ export default {
             { text: 'Третий ответ' }],
         },
         {
+          type: 'question',
           title: 'Ваш Второй Вопрос?',
           answers: [
             { text: 'Хахаха' },
@@ -43,11 +46,15 @@ export default {
             { text: 'Может быть неясно' }],
         },
         {
+          type: 'question',
           title: 'Ваш Третий вопрос?',
           answers: [
             { text: 'Возможно это ' },
             { text: 'Вариант номер два' },
             { text: 'Третий ответ' }],
+        },
+        {
+          type: 'form',
         },
       ],
       currentQuiz: 0,
@@ -74,6 +81,9 @@ export default {
   computed: {
     isLastQuestion () {
       return this.quizList.length === this.currentQuiz
+    },
+    currentQuizCard () {
+      return this.quizList[this.currentQuiz]
     },
   },
 }
