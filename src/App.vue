@@ -119,6 +119,7 @@ body {
 }
 
 .main {
+  position: relative;
   background-color: var(--var-bg-color);
   height: 100%;
 }
