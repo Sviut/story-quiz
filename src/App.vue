@@ -1,29 +1,29 @@
 <template>
   <div id="app">
-    <div class="container">
-      <FirstPage/>
-      <!--      <div v-if="!isLastQuestion">-->
-      <!--        <ProgressBar :bar-count="quizList.length" :current-bar="currentQuiz"/>-->
-      <!--        <QuestionCard @addNewAnswer="addNewAnswer" :quiz="quizList[this.currentQuiz]"/>-->
-      <!--      </div>-->
-      <!--      <LeadsPage v-else @submit="submitResults"/>-->
+    <div class="main">
+      <!--      <FirstPage/>-->
+      <div v-if="!isLastQuestion">
+        <ProgressBar :bar-count="quizList.length" :current-bar="currentQuiz"/>
+        <QuestionCard @addNewAnswer="addNewAnswer" :quiz="quizList[this.currentQuiz]"/>
+      </div>
+      <LeadsPage v-else @submit="submitResults"/>
     </div>
   </div>
 </template>
 
 <script>
-// import QuestionCard from '@/components/QuestionCard'
-// import ProgressBar from '@/components/ProgressBar'
-// import LeadsPage from '@/components/FinalCard'
-import FirstPage from '@/FirstPage'
+import QuestionCard from '@/components/QuestionCard'
+import ProgressBar from '@/components/ProgressBar'
+import LeadsPage from '@/components/FinalCard'
+// import FirstPage from '@/FirstPage'
 
 export default {
   name: 'App',
   components: {
-    FirstPage,
-    // LeadsPage,
-    // ProgressBar,
-    // QuestionCard,
+    // FirstPage,
+    LeadsPage,
+    ProgressBar,
+    QuestionCard,
   },
   data: function () {
     return {
@@ -108,8 +108,12 @@ body {
   background-color: slategray;
 }
 
-.container {
+.main {
   background-color: var(--var-bg-color);
   height: 100%;
+}
+
+.container {
+  padding: 20px;
 }
 </style>
