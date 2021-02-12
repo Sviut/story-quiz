@@ -10,7 +10,9 @@
       <div class="text-subtitle">
         Опрос займет всего 30 секунд!
       </div>
-      <button :style="{background: getGradient}" class="btn"><i class="far fa-check-circle"></i> Пройти опрос</button>
+      <button @click="$emit('clickOnButton')" :style="{background: getGradient}" class="btn"><i
+          class="far fa-check-circle"></i> Пройти опрос
+      </button>
     </div>
   </div>
 </template>

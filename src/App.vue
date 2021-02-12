@@ -1,9 +1,12 @@
 <template>
   <div id="app">
     <div class="main">
-      <ProgressBar :bar-count="quizList.length + 1" :current-bar="currentQuiz"/>
-      <FirstPage v-if="currentQuizCard.type === 'first'"/>
+      <ProgressBar :bar-count="quizList.length" :current-bar="currentQuiz"/>
+
+      <FirstPage @clickOnButton="nextQuiz" v-if="currentQuizCard.type === 'first'"/>
+
       <QuestionCard v-if="currentQuizCard.type === 'question'" @addNewAnswer="addNewAnswer" :quiz="currentQuizCard"/>
+
       <LeadsPage v-if="currentQuizCard.type === 'form'" @submit="submitResults"/>
     </div>
   </div>
@@ -73,6 +76,10 @@ export default {
         this.currentQuiz = this.currentQuiz + 1
         this.disableQuiz = false
       }, 500)
+    },
+    nextQuiz () {
+      console.log('aa')
+      this.currentQuiz = this.currentQuiz + 1
     },
     submitResults (contact) {
       console.log({ ...contact, ...this.answers })
