@@ -52,24 +52,27 @@ export default {
 }
 
 .progress-bar__white {
+  background-color: white;
   height: 4px;
-  width: 100%;
+  width: 0;
   border-radius: 5px;
 }
 
 .fulled {
-  background-color: white;
+  width: 100%;
 }
 
 .progress-bar__animation {
-  background-color: white;
   animation: grow 7s linear;
-  transform-origin: left;
 }
 
 @keyframes grow {
   0% {
-    transform: scaleX(0);
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
   }
 }
 </style>
