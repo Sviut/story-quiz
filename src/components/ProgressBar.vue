@@ -63,12 +63,12 @@ export default {
 }
 
 .progress-bar__animation {
-  animation: grow 7s linear;
+  animation: grow 7s linear forwards;
 }
 
 @keyframes grow {
   0% {
-    width: 0;
+    width: 0%;
   }
 
   100% {
