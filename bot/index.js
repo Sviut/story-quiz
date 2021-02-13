@@ -13,6 +13,10 @@ const port = 3000
 const bot = new Telegraf('1580851464:AAGr-0IO3LLKdxqw74NRo4cTMg_3KJsPYo0')
 const CHAT_ID = '-597719238'
 
+server.get('/ping', (req, res) => {
+	res.send('pong')
+})
+
 server.post('/new', (req, res) => {
 	const { name, phone, quiz } = req.body
 	const answers = quiz.map(quiz => `${quiz.title}: ${quiz.answer}`).join('\r\n')
