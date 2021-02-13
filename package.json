@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "npm run --prefix /bot node index",
-    "heroku-postbuild": "npm --prefix /bot && npm run install"
+    //    "heroku-postbuild": "npm --lsprefix /bot && npm run install",
+    "postinstall": "npm install --prefix ./bot"
   },
   "repository": {
     "type": "git",
