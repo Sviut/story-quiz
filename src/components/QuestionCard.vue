@@ -25,8 +25,6 @@
 </template>
 
 <script>
-const { COLORS } = require('@/constants')
-
 export default {
   name: 'QuestionCard',
   props: {
@@ -55,7 +53,7 @@ export default {
       return `linear-gradient(to right, rgb(${this.color.from}), rgb(${this.color.to}))`
     },
     getIconColor () {
-      return `rgb(${COLORS[0].to})`
+      return `rgb(${this.color.to})`
     },
   },
 

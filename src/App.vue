@@ -7,13 +7,26 @@
           :current-bar="currentQuiz"
       />
 
-      <FirstPage @clickOnButton="nextQuiz" v-if="currentQuizCard.type === 'first'"/>
+      <FirstPage
+          @clickOnButton="nextQuiz"
+          v-if="currentQuizCard.type === 'first'"
+      />
 
-      <QuestionCard v-if="currentQuizCard.type === 'question'" @addNewAnswer="addNewAnswer" :quiz="currentQuizCard"/>
+      <QuestionCard
+          v-if="currentQuizCard.type === 'question'"
+          @addNewAnswer="addNewAnswer"
+          :quiz="currentQuizCard"
+          :color="quizColors"
+      />
 
-      <ContactCard v-if="currentQuizCard.type === 'form'" @submit="submitResults"/>
+      <ContactCard
+          v-if="currentQuizCard.type === 'form'"
+          @submit="submitResults"
+      />
 
-      <FinalCard v-if="currentQuizCard.type === 'final'"/>
+      <FinalCard
+          v-if="currentQuizCard.type === 'final'"
+      />
     </div>
   </div>
 </template>
@@ -24,6 +37,7 @@ import ProgressBar from '@/components/ProgressBar'
 import ContactCard from '@/components/ContactCard'
 import FirstPage from '@/components/FirstPage'
 import FinalCard from '@/components/FinalCard'
+import { COLORS } from '@/constants'
 
 export default {
   name: 'App',
@@ -47,6 +61,46 @@ export default {
             { text: 'Ответ первый' },
             { text: 'Вариант номер два' },
             { text: 'Третий ответ' }],
+        },
+        {
+          type: 'question',
+          title: 'Ваш Второй Вопрос?',
+          answers: [
+            { text: 'Хахаха' },
+            { text: 'Тут будет длинный вариант ответа' },
+            { text: 'Может быть неясно' }],
+        },
+        {
+          type: 'question',
+          title: 'Ваш Второй Вопрос1?',
+          answers: [
+            { text: 'Хахаха' },
+            { text: 'Тут будет длинный вариант ответа' },
+            { text: 'Может быть неясно' }],
+        },
+        {
+          type: 'question',
+          title: 'Ваш Второй Вопрос2?',
+          answers: [
+            { text: 'Хахаха' },
+            { text: 'Тут будет длинный вариант ответа' },
+            { text: 'Может быть неясно' }],
+        },
+        {
+          type: 'question',
+          title: 'Ваш Второй Вопрос3?',
+          answers: [
+            { text: 'Хахаха' },
+            { text: 'Тут будет длинный вариант ответа' },
+            { text: 'Может быть неясно' }],
+        },
+        {
+          type: 'question',
+          title: 'Ваш Второй Вопрос4?',
+          answers: [
+            { text: 'Хахаха' },
+            { text: 'Тут будет длинный вариант ответа' },
+            { text: 'Может быть неясно' }],
         },
         {
           type: 'question',
@@ -102,6 +156,9 @@ export default {
     },
     currentQuizCard () {
       return this.quizList[this.currentQuiz]
+    },
+    quizColors () {
+      return this.currentQuiz >= COLORS.length ? COLORS[Math.floor(Math.random() * COLORS.length)] : COLORS[this.currentQuiz]
     },
   },
 }
