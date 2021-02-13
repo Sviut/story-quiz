@@ -1,10 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const { Telegraf } = require('telegraf')
-const cors = require('cors')
 
 const server = express()
-server.use(cors())
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({ extended: false }))
 server.use(express.json())
