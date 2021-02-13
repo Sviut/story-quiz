@@ -1,1 +1,1 @@
-web:node bot/index.js
+web: cd bot && node index.js
