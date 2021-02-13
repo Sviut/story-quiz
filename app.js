@@ -1,38 +1,14 @@
-// const express = require('express')
-// const bodyParser = require('body-parser')
+const bodyParser = require('body-parser')
 const { Telegraf } = require('telegraf')
-
-//
-// const server = express()
-// server.use(bodyParser.json())
-// server.use(bodyParser.urlencoded({ extended: false }))
-// server.use(express.json())
-//
-// const PORT = process.env.port || 3000
-const bot = new Telegraf('1580851464:AAGr-0IO3LLKdxqw74NRo4cTMg_3KJsPYo0')
-const CHAT_ID = '-597719238'
-//
-// server.get('/ping', (req, res) => {
-// 	res.send('pong')
-// })
-//
-// server.post('/new', (req, res) => {
-// 	const { name, phone, quiz } = req.body
-// 	const answers = quiz.map(quiz => `${quiz.title}: ${quiz.answer}`).join('\r\n')
-// 	bot.telegram.sendMessage(CHAT_ID, `Имя: ${name}\nТелефон: ${phone}\n-------------------------------------\n${answers}`)
-// })
-//
-// server.listen(PORT, () => {
-// 	console.log(`SERVER STARTED - http://localhost:${PORT}`)
-// })
-
-// create an express app
 const express = require('express')
 const app = express()
 
-// use the express-static middleware
+const bot = new Telegraf('1580851464:AAGr-0IO3LLKdxqw74NRo4cTMg_3KJsPYo0')
+const CHAT_ID = '-597719238'
 
-// define the first route
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
 app.get('/ping', function (req, res) {
 	res.send('<h1>Pong!</h1>')
 })
@@ -41,8 +17,8 @@ app.post('/new', function (req, res) {
 	const { name, phone, quiz } = req.body
 	const answers = quiz.map(quiz => `${quiz.title}: ${quiz.answer}`).join('\r\n')
 	bot.telegram.sendMessage(CHAT_ID, `Имя: ${name}\nТелефон: ${phone}\n-------------------------------------\n${answers}`)
+	res.end().status(200)
 })
 
-// start the server listening for requests
 app.listen(process.env.PORT || 3000,
 	() => console.log('Server is running...'))
