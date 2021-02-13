@@ -51,17 +51,17 @@ export default {
   data: function () {
     return {
       quizList: [
-        // {
-        //   type: 'first',
-        // },
-        // {
-        //   type: 'question',
-        //   title: 'Ваш вопрос для квиза?',
-        //   answers: [
-        //     { text: 'Ответ первый' },
-        //     { text: 'Вариант номер два' },
-        //     { text: 'Третий ответ' }],
-        // },
+        {
+          type: 'first',
+        },
+        {
+          type: 'question',
+          title: 'Ваш вопрос для квиза?',
+          answers: [
+            { text: 'Ответ первый' },
+            { text: 'Вариант номер два' },
+            { text: 'Третий ответ' }],
+        },
         // {
         //   type: 'question',
         //   title: 'Ваш Второй Вопрос?',
@@ -165,6 +165,7 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
 
 :root {
   --var-bg-color: rgb(249, 163, 148);
@@ -181,7 +182,7 @@ body {
 }
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
