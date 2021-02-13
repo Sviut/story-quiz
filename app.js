@@ -1,6 +1,7 @@
 // const express = require('express')
 // const bodyParser = require('body-parser')
-// const { Telegraf } = require('telegraf')
+const { Telegraf } = require('telegraf')
+
 //
 // const server = express()
 // server.use(bodyParser.json())
@@ -8,8 +9,8 @@
 // server.use(express.json())
 //
 // const PORT = process.env.port || 3000
-// const bot = new Telegraf('1580851464:AAGr-0IO3LLKdxqw74NRo4cTMg_3KJsPYo0')
-// const CHAT_ID = '-597719238'
+const bot = new Telegraf('1580851464:AAGr-0IO3LLKdxqw74NRo4cTMg_3KJsPYo0')
+const CHAT_ID = '-597719238'
 //
 // server.get('/ping', (req, res) => {
 // 	res.send('pong')
@@ -33,8 +34,14 @@ const app = express()
 app.use(express.static('public'))
 
 // define the first route
-app.get('/', function (req, res) {
-	res.send('<h1>Hello World!</h1>')
+app.get('/ping', function (req, res) {
+	res.send('<h1>Pong!</h1>')
+})
+
+app.post('/new', function (req, res) {
+	const { name, phone, quiz } = req.body
+	const answers = quiz.map(quiz => `${quiz.title}: ${quiz.answer}`).join('\r\n')
+	bot.telegram.sendMessage(CHAT_ID, `Имя: ${name}\nТелефон: ${phone}\n-------------------------------------\n${answers}`)
 })
 
 // start the server listening for requests
