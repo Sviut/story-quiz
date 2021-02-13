@@ -1,1 +1,1 @@
-worker: cd bot && npm start
+web: cd bot && node index.js
