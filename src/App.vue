@@ -3,7 +3,7 @@
     <div class="main">
       <ProgressBar
           v-if="currentQuizCard.type !== 'final'"
-          :bar-count="quizList.length"
+          :bar-count="quizList.length - 1"
           :current-bar="currentQuiz"
       />
 
