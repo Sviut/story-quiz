@@ -34,6 +34,10 @@ export default {
       type: Object,
       required: true,
     },
+    color: {
+      type: Object,
+      required: true,
+    },
   },
   data: function () {
     return {
@@ -48,7 +52,7 @@ export default {
   },
   computed: {
     getGradient () {
-      return `linear-gradient(to right, rgb(${COLORS[0].from}), rgb(${COLORS[0].to}))`
+      return `linear-gradient(to right, rgb(${this.color.from}), rgb(${this.color.to}))`
     },
     getIconColor () {
       return `rgb(${COLORS[0].to})`
