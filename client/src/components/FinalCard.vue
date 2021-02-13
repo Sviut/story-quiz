@@ -10,9 +10,9 @@
         <ShareNetwork
             class="share-link"
             network="whatsapp"
-            title="Лазерная эпиляция всего за 190р!"
-            description="Лазерная эпиляция города Томск открыта для ваших кисок"
-            url="https://instagram.com/burnday"
+            :title="this.title"
+            :description="this.description"
+            :url="this.link"
         >
           <div class="icon">
             <i class="fab fa-whatsapp"></i>
@@ -22,9 +22,9 @@
         <ShareNetwork
             class="share-link"
             network="Telegram"
-            title="Лазерная эпиляция всего за 190р!"
-            description="Лазерная эпиляция города Томск открыта для ваших кисок"
-            url="https://instagram.com/burnday"
+            :title="this.title"
+            :description="this.description"
+            :url="this.link"
         >
           <div class="icon">
             <i class="fab fa-telegram-plane"></i>
@@ -34,9 +34,9 @@
         <ShareNetwork
             class="share-link"
             network="VK"
-            title="Лазерная эпиляция всего за 190р!"
-            description="Лазерная эпиляция города Томск открыта для ваших кисок"
-            url="https://instagram.com/burnday"
+            :title="this.title"
+            :description="this.description"
+            :url="this.link"
         >
           <div class="icon">
             <i class="fab fa-vk"></i>
@@ -47,9 +47,9 @@
         <ShareNetwork
             class="share-link"
             network="odnoklassniki"
-            title="Лазерная эпиляция всего за 190р!"
-            description="Лазерная эпиляция города Томск открыта для ваших кисок"
-            url="https://instagram.com/burnday"
+            :title="this.title"
+            :description="this.description"
+            :url="this.link"
         >
           <div class="icon">
             <i class="fab fa-odnoklassniki"></i>
@@ -59,9 +59,9 @@
         <ShareNetwork
             class="share-link"
             network="viber"
-            title="Лазерная эпиляция всего за 190р!"
-            description="Лазерная эпиляция города Томск открыта для ваших кисок"
-            url="https://instagram.com/burnday"
+            :title="this.title"
+            :description="this.description"
+            :url="this.link"
         >
           <div class="icon">
             <i class="fab fa-viber"></i>
@@ -76,6 +76,13 @@
 <script>
 export default {
   name: 'FinalCard',
+  data: function () {
+    return {
+      link: 'https://fervent-agnesi-c33825.netlify.app',
+      title: 'Лазерная эпиляция за 190р!',
+      description: 'Пройди опрос за 30 секунд и и запишись на эпиляцию за 190р!',
+    }
+  },
 }
 </script>
 
