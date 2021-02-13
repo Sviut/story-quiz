@@ -1,0 +1,19 @@
+{
+  "name": "story-quiz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm run --prefix bot node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sviut/story-quiz.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sviut/story-quiz/issues"
+  },
+  "homepage": "https://github.com/Sviut/story-quiz#readme"
+}
