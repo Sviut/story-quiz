@@ -9,7 +9,7 @@ server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({ extended: false }))
 server.use(express.json())
 
-const port = 3000
+const PORT = process.env.port || 3000
 const bot = new Telegraf('1580851464:AAGr-0IO3LLKdxqw74NRo4cTMg_3KJsPYo0')
 const CHAT_ID = '-597719238'
 
@@ -23,6 +23,6 @@ server.post('/new', (req, res) => {
 	bot.telegram.sendMessage(CHAT_ID, `Имя: ${name}\nТелефон: ${phone}\n-------------------------------------\n${answers}`)
 })
 
-server.listen(port, () => {
-	console.log(`SERVER STARTED - http://localhost:${port}`)
+server.listen(PORT, () => {
+	console.log(`SERVER STARTED - http://localhost:${PORT}`)
 })
