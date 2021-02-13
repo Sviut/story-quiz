@@ -3,7 +3,7 @@
     <div class="main">
       <ProgressBar
           v-if="currentQuizCard.type !== 'final'"
-          :bar-count="quizList.length - 1"
+          :bar-count="progressBarsCount"
           :current-bar="currentQuiz"
       />
 
@@ -97,8 +97,8 @@ export default {
     },
   },
   computed: {
-    isLastQuestion () {
-      return this.quizList.length === this.currentQuiz
+    progressBarsCount () {
+      return this.quizList.some(quiz => quiz.type === 'final') ? this.quizList.length - 1 : this.quizList.length
     },
     currentQuizCard () {
       return this.quizList[this.currentQuiz]
