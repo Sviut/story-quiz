@@ -38,6 +38,7 @@ import ContactCard from '@/components/ContactCard'
 import FirstPage from '@/components/FirstPage'
 import FinalCard from '@/components/FinalCard'
 import { COLORS } from '@/constants'
+import { sendLead } from '@/api/api'
 
 export default {
   name: 'App',
@@ -62,30 +63,30 @@ export default {
             { text: 'Вариант номер два' },
             { text: 'Третий ответ' }],
         },
-        // {
-        //   type: 'question',
-        //   title: 'Ваш Второй Вопрос?',
-        //   answers: [
-        //     { text: 'Хахаха' },
-        //     { text: 'Тут будет длинный вариант ответа' },
-        //     { text: 'Может быть неясно' }],
-        // },
-        // {
-        //   type: 'question',
-        //   title: 'Ваш Второй Вопрос1?',
-        //   answers: [
-        //     { text: 'Хахаха' },
-        //     { text: 'Тут будет длинный вариант ответа' },
-        //     { text: 'Может быть неясно' }],
-        // },
-        // {
-        //   type: 'question',
-        //   title: 'Ваш Второй Вопрос2?',
-        //   answers: [
-        //     { text: 'Хахаха' },
-        //     { text: 'Тут будет длинный вариант ответа' },
-        //     { text: 'Может быть неясно' }],
-        // },
+        {
+          type: 'question',
+          title: 'Ваш Второй Вопрос?',
+          answers: [
+            { text: 'Хахаха' },
+            { text: 'Тут будет длинный вариант ответа' },
+            { text: 'Может быть неясно' }],
+        },
+        {
+          type: 'question',
+          title: 'Ваш Второй Вопрос1?',
+          answers: [
+            { text: 'Хахаха' },
+            { text: 'Тут будет длинный вариант ответа' },
+            { text: 'Может быть неясно' }],
+        },
+        {
+          type: 'question',
+          title: 'Ваш Второй Вопрос2?',
+          answers: [
+            { text: 'Хахаха' },
+            { text: 'Тут будет длинный вариант ответа' },
+            { text: 'Может быть неясно' }],
+        },
         // {
         //   type: 'question',
         //   title: 'Ваш Второй Вопрос3?',
@@ -147,7 +148,9 @@ export default {
     },
     submitResults (contact) {
       this.nextQuiz()
-      console.log({ ...contact, ...this.answers })
+      const lead = { ...contact, quiz: this.answers }
+      console.log(lead)
+      sendLead(lead)
     },
   },
   computed: {
