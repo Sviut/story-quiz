@@ -2,7 +2,9 @@
   <div class="wrapper">
     <div class="card-wrapper">
       <div class="avatar-circle"></div>
-      <div class="avatar-img"></div>
+      <div class="avatar-img">
+        <img src="../assets/logo.png" alt="">
+      </div>
 
       <h4 class="card-title">Укажите ваши контактные данные, что бы мы могли забронировать предложение за 190 руб.
         именно для Вас!</h4>
@@ -72,10 +74,17 @@ export default {
   left: 50%;
   top: 0px;
   transform: translate(-50%, -50%);
-  height: 52px;
-  width: 52px;
+  height: 60px;
+  width: 60px;
+  border: 3px solid white;
   border-radius: 50%;
-  background-color: red;
+  overflow: hidden;
+}
+
+.avatar-img img {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
 }
 
 .card-title {
