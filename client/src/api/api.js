@@ -1,6 +1,6 @@
 export async function sendLead (lead) {
 	try {
-		await fetch('http://localhost:3000/new', {
+		await fetch('https://story-quiz.herokuapp.com/new', {
 			method: 'POST',
 
 			headers: {
