@@ -1,1 +1,1 @@
-web:cd bot && npm start
+web:node bot/index.js
