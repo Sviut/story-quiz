@@ -1,1 +1,1 @@
-web: node www/bot/index.js
+web: npm run start
