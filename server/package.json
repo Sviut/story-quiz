@@ -5,9 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "npx nodemon index",
-    "postinstall": "npm run build",
-    "start": "node app.js",
-    "test": "npm run serve --prefix ../client"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
