@@ -4,8 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "dev": "npx nodemon index",
     "postinstall": "npm run build",
-    "start": "npm run start --prefix ./server"
+    "start": "node app.js",
+    "test": "npm run serve --prefix ../client"
   },
   "author": "",
   "license": "ISC",
