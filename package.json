@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "postinstall": "npm install --prefix ./server && NODE_ENV=development && npm install --prefix ./server && npm run build --prefix ./client && NODE_ENV=production",
+    "postinstall": "npm install --prefix ./server && npm run heroku-build --prefix ./client",
     "start": "npm run start --prefix ./server"
   },
   "author": "",
