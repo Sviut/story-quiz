@@ -2,6 +2,8 @@ const bodyParser = require('body-parser')
 const { Telegraf } = require('telegraf')
 const express = require('express')
 const cors = require('cors')
+const serveStatic = require('serve-static')
+const path = require('path')
 
 const app = express()
 
@@ -11,6 +13,8 @@ const CHAT_ID = '-597719238'
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cors())
+
+app.use('/', serveStatic(path.join(__dirname, '../client/dist')))
 
 app.get('/ping', function (req, res) {
 	res.send('<h1>Pong!</h1>')
