@@ -37,7 +37,7 @@ import ProgressBar from '@/components/ProgressBar'
 import ContactCard from '@/components/ContactCard'
 import FirstPage from '@/components/FirstPage'
 import FinalCard from '@/components/FinalCard'
-import { COLORS } from '@/constants'
+import { COLORS, QUIZ_LIST } from '@/constants'
 import { sendLead } from '@/api/api'
 
 export default {
@@ -51,81 +51,7 @@ export default {
   },
   data: function () {
     return {
-      quizList: [
-        {
-          type: 'first',
-        },
-        {
-          type: 'question',
-          title: 'Ваш вопрос для квиза?',
-          answers: [
-            { text: 'Ответ первый' },
-            { text: 'Вариант номер два' },
-            { text: 'Третий ответ' }],
-        },
-        {
-          type: 'question',
-          title: 'Ваш Второй Вопрос?',
-          answers: [
-            { text: 'Хахаха' },
-            { text: 'Тут будет длинный вариант ответа' },
-            { text: 'Может быть неясно' }],
-        },
-        {
-          type: 'question',
-          title: 'Ваш Второй Вопрос1?',
-          answers: [
-            { text: 'Хахаха' },
-            { text: 'Тут будет длинный вариант ответа' },
-            { text: 'Может быть неясно' }],
-        },
-        {
-          type: 'question',
-          title: 'Ваш Второй Вопрос2?',
-          answers: [
-            { text: 'Хахаха' },
-            { text: 'Тут будет длинный вариант ответа' },
-            { text: 'Может быть неясно' }],
-        },
-        // {
-        //   type: 'question',
-        //   title: 'Ваш Второй Вопрос3?',
-        //   answers: [
-        //     { text: 'Хахаха' },
-        //     { text: 'Тут будет длинный вариант ответа' },
-        //     { text: 'Может быть неясно' }],
-        // },
-        // {
-        //   type: 'question',
-        //   title: 'Ваш Второй Вопрос4?',
-        //   answers: [
-        //     { text: 'Хахаха' },
-        //     { text: 'Тут будет длинный вариант ответа' },
-        //     { text: 'Может быть неясно' }],
-        // },
-        // {
-        //   type: 'question',
-        //   title: 'Ваш Второй Вопрос?',
-        //   answers: [
-        //     { text: 'Хахаха' },
-        //     { text: 'Тут будет длинный вариант ответа' },
-        //     { text: 'Может быть неясно' }],
-        // },
-        // {
-        //   type: 'question',
-        //   title: 'Ваш Третий вопрос?',
-        //   answers: [
-        //     { text: 'Возможно это ' },
-        //     { text: 'Вариант номер два' },
-        //     { text: 'Третий ответ' }],
-        // },
-        {
-          type: 'form',
-        },
-        {
-          type: 'final',
-        },
-      ],
+      quizList: QUIZ_LIST,
       currentQuiz: 0,
       answers: [],
       disableQuiz: false,
