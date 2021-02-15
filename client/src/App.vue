@@ -118,7 +118,7 @@ body {
   color: #2c3e50;
   margin: 0;
   padding: 0;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 40px);
   width: 100vw;
   background-color: slategray;
 }

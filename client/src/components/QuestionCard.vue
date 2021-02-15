@@ -64,17 +64,18 @@ export default {
 .wrapper {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding: 20px;
+  height: 100%;
 }
 
 .card-wrapper {
-  margin-top: 50%;
-  width: 100%;
   border-radius: 25px;
   background-color: white;
 }
 
 .card-title {
+  line-height: 1rem;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
   padding: 20px;
@@ -86,6 +87,7 @@ export default {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  line-height: 1rem;
   border: 1px solid gray;
   border-radius: 50px;
   margin: 10px;
