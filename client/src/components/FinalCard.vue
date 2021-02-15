@@ -78,9 +78,9 @@ export default {
   name: 'FinalCard',
   data: function () {
     return {
-      link: 'https://fervent-agnesi-c33825.netlify.app',
-      title: 'Лазерная эпиляция за 190р!',
-      description: 'Пройди опрос за 30 секунд и и запишись на эпиляцию за 190р!',
+      link: 'https://story-quiz.herokuapp.com',
+      title: 'Лазерная эпиляция за 190руб.!',
+      description: '',
     }
   },
 }
