@@ -1,6 +1,6 @@
 export async function sendLead (lead) {
 	try {
-		await fetch('http://localhost:3000/new', {
+		await fetch('https://localhost:3000/new', {
 			method: 'POST',
 
 			headers: {
