@@ -74,8 +74,8 @@ export default {
   left: 50%;
   top: 0px;
   transform: translate(-50%, -50%);
-  height: 60px;
-  width: 60px;
+  height: 68px;
+  width: 68px;
   border: 3px solid white;
   border-radius: 50%;
   overflow: hidden;
@@ -94,14 +94,14 @@ export default {
 
 .input {
   width: 100%;
-  padding: 10px 20px;
+  padding: 5px 20px;
   margin-bottom: 10px;
   border-radius: 50px;
   height: 55px;
   text-align: left;
   background-color: rgb(224, 224, 224);
   border: none;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .input::placeholder {
