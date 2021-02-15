@@ -87,7 +87,8 @@ export default {
       return this.quizList[this.currentQuiz]
     },
     quizColors () {
-      return this.currentQuiz >= COLORS.length ? COLORS[Math.floor(Math.random() * COLORS.length)] : COLORS[this.currentQuiz]
+      return COLORS[3]
+      // return this.currentQuiz >= COLORS.length ? COLORS[Math.floor(Math.random() * COLORS.length)] : COLORS[this.currentQuiz]
     },
   },
 }
