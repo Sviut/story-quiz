@@ -21,13 +21,19 @@ app.get('/ping', function (req, res) {
 })
 
 app.post('/new', function (req, res) {
-	const { name, phone, quiz } = req.body
+	try {
+		const { name, phone, quiz } = req.body
 
-	const answers = quiz.map(quiz => `${quiz.title}: ${quiz.answer}`).join('\r\n')
-	bot.telegram.sendMessage(CHAT_ID, `Имя: ${name}\nТелефон: ${phone}\n-------------------------------------\n${answers}`).then(() => {
-		res.end().status(200)
-	})
+		const answers = quiz.map(quiz => `${quiz.title}: ${quiz.answer}`).join('\r\n')
+		bot.telegram.sendMessage(CHAT_ID, `Имя: ${name}\nТелефон: ${phone}\n-------------------------------------\n${answers}`).then(() => {
+			res.end().status(200)
+		})
+	} catch (e) {
+		console.log(e)
+	}
 })
+
+bot.launch()
 
 app.listen(process.env.PORT || 3000,
 	() => console.log('Server is running...'))
