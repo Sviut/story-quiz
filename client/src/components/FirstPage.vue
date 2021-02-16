@@ -10,6 +10,8 @@
       <div class="text-subtitle">
         Опрос займет всего 30 секунд!
       </div>
+
+      {{ process.env.VUE_APP_SOMEKEY || 'Nothing' }}
       <button
           @click="$emit('clickOnButton')"
           :style="{background: getGradient}" class="btn"
