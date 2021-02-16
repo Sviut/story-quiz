@@ -24,8 +24,8 @@ app.post('/new', function (req, res) {
 	try {
 		const { name, phone, quiz } = req.body
 
-		const answers = quiz.map(quiz => `${quiz.title}: ${quiz.answer}`).join('\r\n')
-		bot.telegram.sendMessage(CHAT_ID, `Имя: ${name}\nТелефон: ${phone}\n-------------------------------------\n${answers}`).then(() => {
+		const answers = quiz.map(quiz => `${quiz.title}: \n${quiz.answer}`).join('\r\n')
+		bot.telegram.sendMessage(CHAT_ID, `Имя: ${name}Телефон: ${phone}\n-------------------------------------\n${answers}`).then(() => {
 			res.end().status(200)
 		})
 	} catch (e) {
