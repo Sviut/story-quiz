@@ -24,7 +24,6 @@
 
 <script>
 const { COLORS } = require('@/constants')
-console.log(process.env.VUE_APP_SOMEKEY)
 export default {
   name: 'FirstPage',
   computed: {

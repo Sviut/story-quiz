@@ -74,6 +74,8 @@
 </template>
 
 <script>
+import { initPixel } from '@/pixel'
+
 export default {
   name: 'FinalCard',
   data: function () {
@@ -83,8 +85,15 @@ export default {
       description: '',
     }
   },
+  mounted () {
+    const pixelId = '982410142288622'
+    if (process.env.VUE_APP_MODE === 'PROD') {
+      initPixel(pixelId)
+    }
+  },
 }
 </script>
+
 
 <style scoped>
 .container {
