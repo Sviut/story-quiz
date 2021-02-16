@@ -11,7 +11,6 @@
         Опрос займет всего 30 секунд!
       </div>
 
-      {{ process.env.VUE_APP_SOMEKEY || 'Nothing' }}
       <button
           @click="$emit('clickOnButton')"
           :style="{background: getGradient}" class="btn"
@@ -25,7 +24,7 @@
 
 <script>
 const { COLORS } = require('@/constants')
-
+console.log(process.env.VUE_APP_SOMEKEY)
 export default {
   name: 'FirstPage',
   computed: {
