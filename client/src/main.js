@@ -15,8 +15,6 @@ function initMetrika () {
 		// eslint-disable-next-line no-unexpected-multiline
 		(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym')
 	window.ym(72568744, 'init', {
-		defer: true,
-		accurateTrackBounce: true,
 		webvisor: true,
 	})
 }
