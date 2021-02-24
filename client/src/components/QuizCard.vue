@@ -66,7 +66,7 @@ export default {
 }
 
 .sub-title {
-  font-weight: lighter;
+  color: var(--var-btn-color);
   font-size: 12px;
 }
 
@@ -76,13 +76,14 @@ export default {
 }
 
 .btn {
-  background-color: var(--var-main-color);
+  background-color: var(--var-btn-color);
   border-radius: 25px;
   color: white;
   outline: none;
   border: transparent;
   padding: 10px;
   width: 100%;
+  margin-bottom: 10px;
 }
 
 .btn:active, .btn:focus {

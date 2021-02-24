@@ -67,6 +67,7 @@ export default {
 
 :root {
   --var-main-color: #6473EA;
+  --var-btn-color: #858FEE;
 }
 
 * {
