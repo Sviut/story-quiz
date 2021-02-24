@@ -34,9 +34,11 @@ export default {
   align-items: center;
   justify-content: space-between;
   text-align: center;
+  margin-bottom: 40px;
 }
 
 .top-section {
+  padding-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
