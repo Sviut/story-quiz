@@ -22,7 +22,7 @@ export default {
   height: 100%;
   max-height: 100%;
   background-color: var(--var-main-color);
-  padding: 25px 25px 90px;
+  padding: 25px;
   width: 100%;
 }
 </style>
