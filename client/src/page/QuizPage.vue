@@ -21,7 +21,7 @@ export default {
   align-items: flex-end;
   height: 100%;
   max-height: 100%;
-  background-color: #6473EA;
+  background-color: var(--var-main-color);
   padding: 25px 25px 90px;
   width: 100%;
 }

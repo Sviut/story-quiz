@@ -10,10 +10,8 @@
       <div class="sub-title">Опрос займет всего 30 секунд!</div>
     </div>
 
-    <div class="bottom-sectoion">
-      <div>BUtton section</div>
-      <div>BUtton section</div>
-      <div>BUtton section</div>
+    <div class="bottom-section">
+      <button class="btn">Пройти опрос</button>
     </div>
   </div>
 </template>
@@ -50,6 +48,7 @@ export default {
   border: 3px solid white;
   /*border-radius: 50%;*/
   overflow: hidden;
+  margin-bottom: 15px;
 }
 
 .avatar-img img {
@@ -61,10 +60,30 @@ export default {
 .title {
   font-weight: bold;
   line-height: 1rem;
+  margin-bottom: 10px;
 }
 
 .sub-title {
   font-weight: lighter;
   font-size: 12px;
+}
+
+.bottom-section {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.btn {
+  background-color: var(--var-main-color);
+  border-radius: 25px;
+  color: white;
+  outline: none;
+  border: transparent;
+  padding: 10px;
+  width: 100%;
+}
+
+.btn:active, .btn:focus {
+  outline: none;
 }
 </style>

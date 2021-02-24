@@ -65,6 +65,10 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
 
+:root {
+  --var-main-color: #6473EA;
+}
+
 * {
   box-sizing: border-box;
 }
