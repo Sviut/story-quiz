@@ -1,54 +1,18 @@
 <template>
-  <div id="app">
-    <div class="main">
-      <ProgressBar
-          v-if="currentQuizCard.type !== 'final'"
-          :bar-count="progressBarsCount"
-          :current-bar="currentQuiz"
-      />
-
-      <FirstPage
-          @clickOnButton="nextQuiz"
-          v-if="currentQuizCard.type === 'first'"
-      />
-
-      <QuestionCard
-          v-if="currentQuizCard.type === 'question'"
-          @addNewAnswer="addNewAnswer"
-          :quiz="currentQuizCard"
-          :color="quizColors"
-      />
-
-      <ContactCard
-          v-if="currentQuizCard.type === 'form'"
-          @submit="submitResults"
-      />
-
-      <FinalCard
-          v-if="currentQuizCard.type === 'final'"
-      />
-    </div>
+  <div id="app" class="flex">
+    <p class="mt-11">aa</p>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import QuestionCard from '@/components/QuestionCard'
-import ProgressBar from '@/components/ProgressBar'
-import ContactCard from '@/components/ContactCard'
-import FirstPage from '@/components/FirstPage'
-import FinalCard from '@/components/FinalCard'
 import { COLORS, QUIZ_LIST } from '@/constants'
 import { sendLead } from '@/api/api'
 
 export default {
   name: 'App',
-  components: {
-    FinalCard,
-    FirstPage,
-    ContactCard,
-    ProgressBar,
-    QuestionCard,
-  },
+  // components: {
+  // },
   data: function () {
     return {
       quizList: QUIZ_LIST,
@@ -101,36 +65,36 @@ export default {
   --var-bg-color: rgb(249, 163, 148);
 }
 
-* {
-  box-sizing: border-box;
-}
+/** {*/
+/*  box-sizing: border-box;*/
+/*}*/
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--var-bg-color);
-}
+/*body {*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  background-color: var(--var-bg-color);*/
+/*}*/
 
-#app {
-  font-family: 'Poppins', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin: 0;
-  padding: 0;
-  height: calc(100vh - 40px);
-  width: 100vw;
-  background-color: slategray;
-}
+/*#app {*/
+/*  font-family: 'Poppins', sans-serif;*/
+/*  -webkit-font-smoothing: antialiased;*/
+/*  -moz-osx-font-smoothing: grayscale;*/
+/*  text-align: center;*/
+/*  color: #2c3e50;*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  height: calc(100vh - 40px);*/
+/*  width: 100vw;*/
+/*  background-color: slategray;*/
+/*}*/
 
-.main {
-  position: relative;
-  background-color: var(--var-bg-color);
-  height: 100%;
-}
+/*.main {*/
+/*  position: relative;*/
+/*  background-color: var(--var-bg-color);*/
+/*  height: 100%;*/
+/*}*/
 
-.container {
-  padding: 20px;
-}
+/*.container {*/
+/*  padding: 20px;*/
+/*}*/
 </style>

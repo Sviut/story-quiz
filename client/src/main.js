@@ -1,10 +1,25 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueSocialSharing from 'vue-social-sharing'
+import VueRouter from 'vue-router'
+import '@/tailwind.css'
 
 Vue.config.productionTip = false
 
+Vue.use(VueRouter)
 Vue.use(VueSocialSharing)
+
+const routes = [
+	{
+		path: '/:id',
+		component: null,
+	},
+]
+
+const router = new VueRouter({
+	routes,
+	mode: 'history',
+})
 
 function initMetrika () {
 	(function (m, e, t, r, i, k, a) {
@@ -24,5 +39,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 new Vue({
+	router,
 	render: h => h(App),
 }).$mount('#app')
