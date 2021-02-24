@@ -1,18 +1,16 @@
 import Vue from 'vue'
 import App from './App.vue'
-import VueSocialSharing from 'vue-social-sharing'
 import VueRouter from 'vue-router'
-import '@/tailwind.css'
+import QuizPage from '@/page/MainPage'
 
 Vue.config.productionTip = false
 
 Vue.use(VueRouter)
-Vue.use(VueSocialSharing)
 
 const routes = [
 	{
 		path: '/:id',
-		component: null,
+		component: QuizPage,
 	},
 ]
 
