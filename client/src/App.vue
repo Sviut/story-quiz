@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <MainPage>
+    <QuizPage>
       <router-view/>
-    </MainPage>
+    </QuizPage>
   </div>
 </template>
 
@@ -10,11 +10,11 @@
 // import { COLORS, QUIZ_LIST } from '@/constants'
 // import { sendLead } from '@/api/api'
 
-import MainPage from '@/page/MainPage'
+import QuizPage from '@/page/QuizPage'
 
 export default {
   name: 'App',
-  components: { MainPage },
+  components: { QuizPage },
   // components: {
   // },
   // data: function () {
@@ -71,6 +71,7 @@ export default {
 
 html, body {
   height: 100%;
+  max-height: 100%;
   margin: 0;
   padding: 0;
 }

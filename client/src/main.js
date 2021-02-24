@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router'
-import QuizPage from '@/page/MainPage'
+import QuizPage from '@/page/QuizPage'
 
 Vue.config.productionTip = false
 
