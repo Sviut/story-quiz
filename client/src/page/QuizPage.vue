@@ -82,14 +82,13 @@ export default {
 .img-slider {
   overflow: hidden;
   position: relative;
-  height: 100%;
+  height: 500px;
   width: calc(100% - 30px);
   margin: auto;
 }
 
 .quiz {
   position: absolute;
-  margin-top: 10rem;
 }
 
 .slide-leave-active,
