@@ -11,7 +11,13 @@
     </div>
 
     <div v-if="quiz.actionButtons" class="bottom-section">
-      <button :key="idx" v-for="(button, idx) in quiz.actionButtons" class="btn">{{ button.text }}</button>
+      <button
+          :class="{'btnFill': button.type === 'fill'}"
+          :key="idx" v-for="(button, idx) in quiz.actionButtons"
+          class="btn"
+      >
+        {{ button.text }}
+      </button>
     </div>
   </div>
 </template>
@@ -83,11 +89,11 @@ export default {
 }
 
 .btn {
-  background-color: var(--var-btn-color);
+  background-color: white;
   border-radius: 25px;
-  color: white;
+  color: black;
   outline: none;
-  border: transparent;
+  border: 2px solid #E3E3E3;
   padding: 10px;
   width: 100%;
   margin-bottom: 10px;
@@ -96,4 +102,15 @@ export default {
 .btn:active, .btn:focus {
   outline: none;
 }
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btnFill {
+  background-color: var(--var-btn-color);
+  border: transparent;
+  color: white;
+}
+
 </style>

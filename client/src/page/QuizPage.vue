@@ -20,6 +20,7 @@ export default {
           subtitle: 'Опрос займет всего 30 секунд!',
           actionButtons: [
             { text: 'Пройти опрос!' },
+            { text: 'Пройти опрос!', type: 'fill' },
           ],
         },
       ]
