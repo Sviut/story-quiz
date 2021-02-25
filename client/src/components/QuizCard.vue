@@ -1,4 +1,5 @@
 <template>
+
   <div class="wrapper">
     <div class="top-section">
       <div v-if="quiz.avatar" class="avatar-img">
@@ -12,7 +13,8 @@
 
     <div v-if="quiz.actionButtons" class="bottom-section">
       <button
-          :class="{'btnFill': button.type === 'fill'}"
+          @click="selectedBtn = idx"
+          :class="{'btnFill': button.type === 'fill' || selectedBtn === idx}"
           :key="idx" v-for="(button, idx) in quiz.actionButtons"
           class="btn"
       >
@@ -32,6 +34,18 @@ export default {
       required: true,
     },
   },
+
+  data: function () {
+    return {
+      selectedBtn: null,
+    }
+  },
+
+  methods: {
+    submit () {
+
+    },
+  },
 }
 </script>
 
@@ -40,7 +54,6 @@ export default {
   background-color: white;
   padding: 20px;
   border-radius: 25px;
-  height: 460px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -55,6 +68,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 60px;
 }
 
 .avatar-img {
@@ -104,13 +118,12 @@ export default {
 }
 
 .btn:active {
-  transform: scale(0.98);
+  transform: scale(0.99);
 }
 
 .btnFill {
   background-color: var(--var-btn-color);
-  border: transparent;
+  border: 2px solid transparent;
   color: white;
 }
-
 </style>
