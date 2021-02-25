@@ -1,17 +1,17 @@
 <template>
   <div class="wrapper">
     <div class="top-section">
-      <div class="avatar-img">
-        <img src="../assets/logo.png" alt="">
+      <div v-if="quiz.avatar" class="avatar-img">
+        <img
+            :src="quiz.avatar"
+            alt="">
       </div>
-      <div class="title">
-        Ответьте на несколько простых вопросов и мы запишем вас на процедуру за 190 руб.
-      </div>
-      <div class="sub-title">Опрос займет всего 30 секунд!</div>
+      <div v-if="quiz.title" class="title">{{ quiz.title }}</div>
+      <div v-if="quiz.subtitle" class="sub-title">{{ quiz.subtitle }}</div>
     </div>
 
-    <div class="bottom-section">
-      <button class="btn">Пройти опрос</button>
+    <div v-if="quiz.actionButtons" class="bottom-section">
+      <button :key="idx" v-for="(button, idx) in quiz.actionButtons" class="btn">{{ button.text }}</button>
     </div>
   </div>
 </template>
@@ -19,6 +19,13 @@
 <script>
 export default {
   name: 'QuizCard',
+
+  props: {
+    quiz: {
+      type: Object,
+      required: true,
+    },
+  },
 }
 </script>
 
@@ -45,8 +52,8 @@ export default {
 }
 
 .avatar-img {
-  height: 68px;
-  width: 68px;
+  height: 85px;
+  width: 85px;
   border: 3px solid white;
   /*border-radius: 50%;*/
   overflow: hidden;
