@@ -3,9 +3,7 @@
   <div class="wrapper">
     <div class="top-section">
       <div v-if="avatar" class="avatar-img">
-        <img
-            :src="avatar"
-            alt="">
+        <img :src="avatar" alt="">
       </div>
       <div v-if="quiz.title" class="title">{{ quiz.title }}</div>
       <div v-if="quiz.subtitle" class="sub-title">{{ quiz.subtitle }}</div>
@@ -110,10 +108,12 @@ export default {
   border-radius: 25px;
   color: black;
   outline: none;
-  border: 2px solid #E3E3E3;
+  border: 2px solid var(--var-btn-color);
   padding: 10px;
   width: 100%;
   margin-bottom: 10px;
+  -webkit-box-shadow: 0px 5px 14px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 5px 14px 4px rgba(0, 0, 0, 0.25);
 }
 
 .btn:active, .btn:focus {
