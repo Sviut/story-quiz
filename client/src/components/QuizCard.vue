@@ -2,9 +2,9 @@
 
   <div class="wrapper">
     <div class="top-section">
-      <div v-if="quiz.avatar" class="avatar-img">
+      <div v-if="avatar" class="avatar-img">
         <img
-            :src="quiz.avatar"
+            :src="avatar"
             alt="">
       </div>
       <div v-if="quiz.title" class="title">{{ quiz.title }}</div>
@@ -32,6 +32,9 @@ export default {
     quiz: {
       type: Object,
       required: true,
+    },
+    avatar: {
+      type: String,
     },
   },
 

@@ -2,7 +2,7 @@
   <div class="container" @click="inc">
     <transition-group tag="div" class="img-slider" name="slide">
       <div v-for="i in [idx]" :key="i">
-        <QuizCard class="quiz" :quiz="quizList[idx]"></QuizCard>
+        <QuizCard class="quiz" :quiz="quizList[idx]" :avatar="avatar"></QuizCard>
       </div>
     </transition-group>
   </div>
@@ -18,6 +18,7 @@ export default {
   data: function () {
     return {
       idx: 0,
+      avatar: 'https://scontent-arn2-1.cdninstagram.com/v/t51.2885-19/s320x320/61770365_641904942900088_6703438381247889408_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_ohc=hw7C5jltq1oAX-BnHH5&tp=1&oh=e1b497a5a8186ab138df551f24c474b3&oe=6060BB60',
     }
   },
 
@@ -34,7 +35,6 @@ export default {
     quizList () {
       return [
         {
-          avatar: 'https://scontent-arn2-1.cdninstagram.com/v/t51.2885-19/s320x320/61770365_641904942900088_6703438381247889408_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_ohc=hw7C5jltq1oAX-BnHH5&tp=1&oh=e1b497a5a8186ab138df551f24c474b3&oe=6060BB60',
           title: 'вас на процедуру за 190 руб.',
           subtitle: 'Опрос займет всего 30 секунд!',
           actionButtons: [
@@ -42,7 +42,6 @@ export default {
           ],
         },
         {
-          avatar: 'https://scontent-arn2-1.cdninstagram.com/v/t51.2885-19/s320x320/61770365_641904942900088_6703438381247889408_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_ohc=hw7C5jltq1oAX-BnHH5&tp=1&oh=e1b497a5a8186ab138df551f24c474b3&oe=6060BB60',
           title: '2',
           subtitle: 'Опрос займет всего 30 секунд!',
           actionButtons: [
@@ -53,7 +52,6 @@ export default {
           ],
         },
         {
-          avatar: 'https://scontent-arn2-1.cdninstagram.com/v/t51.2885-19/s320x320/61770365_641904942900088_6703438381247889408_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_ohc=hw7C5jltq1oAX-BnHH5&tp=1&oh=e1b497a5a8186ab138df551f24c474b3&oe=6060BB60',
           title: '3',
           subtitle: 'Опрос займет всего 30 секунд!',
           actionButtons: [
