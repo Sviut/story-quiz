@@ -52,8 +52,8 @@ export default {
       this.disableButtons = true
       setTimeout(() => {
         this.currentQuiz += 1
-        this.disableButtons = false
       }, 500)
+      setTimeout(() => this.disableButtons = false, 1500)
     },
     submitForm (contact) {
       this.nextQuiz()
