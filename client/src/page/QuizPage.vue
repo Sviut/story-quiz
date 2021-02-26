@@ -15,6 +15,7 @@
             :avatar="avatar"
             @submitForm="submitForm"
         />
+        <ThanksCard/>
       </div>
     </transition-group>
   </div>
@@ -24,10 +25,11 @@
 
 import QuizCard from '@/components/QuizCard'
 import LeadForm from '@/components/LeadForm'
+import ThanksCard from '@/components/ThanksCard'
 
 export default {
   name: 'QuizPage',
-  components: { LeadForm, QuizCard },
+  components: { ThanksCard, LeadForm, QuizCard },
   data: function () {
     return {
       disableButtons: false,
@@ -58,6 +60,10 @@ export default {
   computed: {
     quizList () {
       return [
+        {
+          type: 'thanks',
+          url: '',
+        },
         {
           type: 'leadForm',
           title: '',
