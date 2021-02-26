@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <SimpleProgressBar :current-bar="currentQuiz" :bar-count="quizCount"/>
     <transition-group tag="div" class="img-slider" name="slide">
       <div v-for="i in [currentQuiz]" :key="i">
         <QuizCard
@@ -29,10 +30,11 @@
 import QuizCard from '@/components/QuizCard'
 import LeadForm from '@/components/LeadForm'
 import ThanksCard from '@/components/ThanksCard'
+import SimpleProgressBar from '@/components/SimpleProgressBar'
 
 export default {
   name: 'QuizPage',
-  components: { ThanksCard, LeadForm, QuizCard },
+  components: { SimpleProgressBar, ThanksCard, LeadForm, QuizCard },
   data: function () {
     return {
       disableButtons: false,
@@ -62,6 +64,9 @@ export default {
   },
 
   computed: {
+    quizCount () {
+      return this.quizList.filter(quiz => quiz.type === 'quiz').length
+    },
     quizList () {
       return [
         {
