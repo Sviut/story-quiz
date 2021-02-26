@@ -13,8 +13,7 @@
             v-if="quizList[currentQuiz].type === 'leadForm'"
             :quiz="quizList[currentQuiz]"
             :avatar="avatar"
-            :disableButtons="disableButtons"
-            @clickOnButton="nextQuiz"
+            @submitForm="submitForm"
         />
       </div>
     </transition-group>
@@ -50,6 +49,9 @@ export default {
         this.currentQuiz += 1
         this.disableButtons = false
       }, 500)
+    },
+    submitForm (contact) {
+      console.log(contact)
     },
   },
 

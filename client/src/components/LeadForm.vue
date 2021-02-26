@@ -13,7 +13,7 @@
         <input v-model="contact.phone" id="phone" required type="tel" class="input" placeholder="Ваш номер телефона">
 
         <button
-            :disabled="disableButtons || !isFormValid"
+            :disabled="disable || !isFormValid"
             type="submit"
             class="btn"
         >
@@ -36,10 +36,6 @@ export default {
     avatar: {
       type: String,
     },
-    disableButtons: {
-      required: true,
-      type: Boolean,
-    },
   },
 
   data: function () {
@@ -48,6 +44,7 @@ export default {
         name: '',
         phone: '',
       },
+      disable: false,
     }
   },
 
@@ -59,8 +56,8 @@ export default {
 
   methods: {
     submit () {
-      console.log('aas')
-      console.log(this.contact)
+      this.disable = true
+      this.$emit('submitForm', { ...this.contact })
     },
   },
 }
@@ -119,6 +116,7 @@ export default {
 }
 
 .btn {
+  margin-top: 15px;
   font-size: 15px;
   background-color: var(--var-btn-color);
   border-radius: 25px;
@@ -128,8 +126,8 @@ export default {
   padding: 10px;
   width: 100%;
   margin-bottom: 10px;
-  -webkit-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.25);
 }
 
 .btn:disabled {
