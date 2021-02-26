@@ -7,15 +7,13 @@
       <div v-if="quiz.title" class="title">{{ quiz.title }}</div>
       <div v-if="quiz.subtitle" class="sub-title">{{ quiz.subtitle }}</div>
     </div>
-    <div v-if="quiz.actionButtons" class="bottom-section">
+    <div class="bottom-section">
       <button
           :disabled="disableButtons"
           @click="clickHandler(button, idx)"
-          :class="{'btnFill': button.type === 'fill' || selectedBtnIdx === idx}"
-          :key="idx" v-for="(button, idx) in quiz.actionButtons"
           class="btn"
       >
-        {{ button.text }}
+        {{ quiz.actionText }}
       </button>
     </div>
   </div>
@@ -23,7 +21,7 @@
 
 <script>
 export default {
-  name: 'QuizCard',
+  name: 'LeadForm',
 
   props: {
     quiz: {
@@ -39,12 +37,6 @@ export default {
     },
   },
 
-  data: function () {
-    return {
-      selectedBtnIdx: null,
-      disabled: false,
-    }
-  },
   methods: {
     clickHandler (button, idx) {
       this.selectedBtnIdx = idx

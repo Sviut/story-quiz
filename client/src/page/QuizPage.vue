@@ -3,12 +3,20 @@
     <transition-group tag="div" class="img-slider" name="slide">
       <div v-for="i in [currentQuiz]" :key="i">
         <QuizCard
-            class="quiz"
+            v-if="quizList[currentQuiz].type === 'quiz'"
             :disableButtons="disableButtons"
             @clickOnButton="submit"
             :quiz="quizList[currentQuiz]"
             :avatar="avatar"
         />
+        <LeadForm
+            v-if="quizList[currentQuiz].type === 'leadForm'"
+            :quiz="quizList[currentQuiz]"
+            :avatar="avatar"
+            :disableButtons="disableButtons"
+        >
+          leadForm
+        </LeadForm>
       </div>
     </transition-group>
   </div>
@@ -17,10 +25,11 @@
 <script>
 
 import QuizCard from '@/components/QuizCard'
+import LeadForm from '@/components/LeadForm'
 
 export default {
   name: 'QuizPage',
-  components: { QuizCard },
+  components: { LeadForm, QuizCard },
   data: function () {
     return {
       disableButtons: false,
@@ -49,6 +58,12 @@ export default {
   computed: {
     quizList () {
       return [
+        {
+          type: 'leadForm',
+          title: '',
+          subtitle: 'Укажите ваши контактные данные, что бы мы могли забронировать предложение за 190 руб именно для Вас!',
+          actionText: 'Записаться на лазерную эпиляцию 190 руб.',
+        },
         {
           type: 'quiz',
           title: 'вас на процедуру за 190 руб.',
