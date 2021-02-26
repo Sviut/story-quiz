@@ -9,9 +9,14 @@
 <script>
 export default {
   name: 'ThanksCard',
+  props: {
+    url: {
+      type: String,
+    },
+  },
   mounted () {
     setTimeout(() => {
-      window.location.href = 'http://www.instagram.com/lazertomsk'
+      window.location.href = this.url
     }, 3000)
   },
 }

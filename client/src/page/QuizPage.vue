@@ -62,7 +62,7 @@ export default {
       return [
         {
           type: 'thanks',
-          url: '',
+          url: 'https://www.instagram.com/Laser_tomsk',
         },
         {
           type: 'leadForm',
