@@ -14,6 +14,7 @@
             :quiz="quizList[currentQuiz]"
             :avatar="avatar"
             :disableButtons="disableButtons"
+            @clickOnButton="nextQuiz"
         >
           leadForm
         </LeadForm>
@@ -43,15 +44,14 @@ export default {
       if (button.save) {
         console.log(button)
       }
-
-      this.disableButtons = true
-      setTimeout(() => {
-        this.nextQuiz()
-        this.disableButtons = false
-      }, 900)
+      this.nextQuiz()
     },
     nextQuiz () {
-      this.currentQuiz += 1
+      this.disableButtons = true
+      setTimeout(() => {
+        this.currentQuiz += 1
+        this.disableButtons = false
+      }, 500)
     },
   },
 
