@@ -8,18 +8,19 @@
       <div v-if="quiz.subtitle" class="sub-title">{{ quiz.subtitle }}</div>
     </div>
     <div class="bottom-section">
-      <form>
+      <form @submit.prevent="submit">
         <input v-model="contact.name" id="name" required class="input" placeholder="Ваше имя">
         <input v-model="contact.phone" id="phone" required type="tel" class="input" placeholder="Ваш номер телефона">
+
+        <button
+            :disabled="disableButtons || !isFormValid"
+            type="submit"
+            class="btn"
+        >
+          {{ quiz.actionText }}
+        </button>
       </form>
 
-      <button
-          disabled
-          @click="clickHandler(button, idx)"
-          class="btn"
-      >
-        {{ quiz.actionText }}
-      </button>
     </div>
   </div>
 </template>
@@ -27,14 +28,6 @@
 <script>
 export default {
   name: 'LeadForm',
-  data: function () {
-    return {
-      contact: {
-        name: '',
-        phone: '',
-      },
-    }
-  },
   props: {
     quiz: {
       type: Object,
@@ -49,10 +42,25 @@ export default {
     },
   },
 
+  data: function () {
+    return {
+      contact: {
+        name: '',
+        phone: '',
+      },
+    }
+  },
+
+  computed: {
+    isFormValid () {
+      return this.contact.name && this.contact.phone
+    },
+  },
+
   methods: {
-    clickHandler (button, idx) {
-      this.selectedBtnIdx = idx
-      this.$emit('clickOnButton', button)
+    submit () {
+      console.log('aas')
+      console.log(this.contact)
     },
   },
 }
@@ -112,9 +120,9 @@ export default {
 
 .btn {
   font-size: 15px;
-  background-color: white;
+  background-color: var(--var-btn-color);
   border-radius: 25px;
-  color: black;
+  color: white;
   outline: none;
   border: 2px solid var(--var-btn-color);
   padding: 10px;
