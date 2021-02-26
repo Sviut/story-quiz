@@ -11,8 +11,9 @@
 
     <div v-if="quiz.actionButtons" class="bottom-section">
       <button
-          @click="selectedBtn = idx"
-          :class="{'btnFill': button.type === 'fill' || selectedBtn === idx}"
+          :disabled="disableButtons"
+          @click="clickHandler(button, idx)"
+          :class="{'btnFill': button.type === 'fill' || selectedBtnIdx === idx}"
           :key="idx" v-for="(button, idx) in quiz.actionButtons"
           class="btn"
       >
@@ -34,17 +35,22 @@ export default {
     avatar: {
       type: String,
     },
+    disableButtons: {
+      required: true,
+      type: Boolean,
+    },
   },
 
   data: function () {
     return {
-      selectedBtn: null,
+      selectedBtnIdx: null,
+      disabled: false,
     }
   },
-
   methods: {
-    submit () {
-
+    clickHandler (button, idx) {
+      this.selectedBtnIdx = idx
+      this.$emit('clickOnButton', button)
     },
   },
 }
@@ -112,8 +118,8 @@ export default {
   padding: 10px;
   width: 100%;
   margin-bottom: 10px;
-  -webkit-box-shadow: 0px 5px 14px 4px rgba(0, 0, 0, 0.25);
-  box-shadow: 0px 5px 14px 4px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.25);
 }
 
 .btn:active, .btn:focus {

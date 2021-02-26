@@ -1,8 +1,14 @@
 <template>
-  <div class="container" @click="inc">
+  <div class="container">
     <transition-group tag="div" class="img-slider" name="slide">
       <div v-for="i in [idx]" :key="i">
-        <QuizCard class="quiz" :quiz="quizList[idx]" :avatar="avatar"></QuizCard>
+        <QuizCard
+            class="quiz"
+            :disableButtons="disableButtons"
+            @clickOnButton="submit"
+            :quiz="quizList[idx]"
+            :avatar="avatar"
+        />
       </div>
     </transition-group>
   </div>
@@ -17,16 +23,19 @@ export default {
   components: { QuizCard },
   data: function () {
     return {
+      disableButtons: false,
       idx: 0,
       avatar: 'https://scontent-arn2-1.cdninstagram.com/v/t51.2885-19/s320x320/61770365_641904942900088_6703438381247889408_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_ohc=hw7C5jltq1oAX-BnHH5&tp=1&oh=e1b497a5a8186ab138df551f24c474b3&oe=6060BB60',
     }
   },
 
   methods: {
-    inc () {
-      console.log('aa')
+    submit (button) {
+      this.disableButtons = true
+      console.log(button)
       setTimeout(() => {
         this.idx += 1
+        this.disableButtons = false
       }, 900)
     },
   },
