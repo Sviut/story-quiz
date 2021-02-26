@@ -2,7 +2,7 @@
   <div class="wrapper">
     <h3>Спасибо!</h3>
     <h4>Вы свяжемся с Вами <br> в ближайшее время!</h4>
-    <small class="message">Сейчас мы перенаправим Вас на нашу страничку</small>
+    <small v-if="quiz.url" class="message">Сейчас мы перенаправим Вас на нашу страничку</small>
   </div>
 </template>
 
@@ -10,14 +10,20 @@
 export default {
   name: 'ThanksCard',
   props: {
-    url: {
+    quiz: {
+      type: Object,
+      required: true,
+    },
+    avatar: {
       type: String,
     },
   },
   mounted () {
-    setTimeout(() => {
-      window.location.href = this.url
-    }, 3000)
+    if (this.quiz.url) {
+      setTimeout(() => {
+        window.location.href = this.quiz.url
+      }, 3000)
+    }
   },
 }
 </script>

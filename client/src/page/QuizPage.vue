@@ -15,7 +15,10 @@
             :avatar="avatar"
             @submitForm="submitForm"
         />
-        <ThanksCard/>
+        <ThanksCard
+            v-if="quizList[currentQuiz].type === 'thanks'"
+            :quiz="quizList[currentQuiz]"
+        />
       </div>
     </transition-group>
   </div>
@@ -53,6 +56,7 @@ export default {
       }, 500)
     },
     submitForm (contact) {
+      this.nextQuiz()
       console.log(contact)
     },
   },
@@ -60,16 +64,6 @@ export default {
   computed: {
     quizList () {
       return [
-        {
-          type: 'thanks',
-          url: 'https://www.instagram.com/Laser_tomsk',
-        },
-        {
-          type: 'leadForm',
-          title: '',
-          subtitle: 'Укажите ваши контактные данные, что бы мы могли забронировать предложение за 190 руб именно для Вас!',
-          actionText: 'Записаться на лазерную эпиляцию 190 руб.',
-        },
         {
           type: 'quiz',
           title: 'вас на процедуру за 190 руб.',
@@ -96,6 +90,16 @@ export default {
           actionButtons: [
             { text: 'Пройти опрос!' },
           ],
+        },
+        {
+          type: 'leadForm',
+          title: '',
+          subtitle: 'Укажите ваши контактные данные, что бы мы могли забронировать предложение за 190 руб именно для Вас!',
+          actionText: 'Записаться на лазерную эпиляцию 190 руб.',
+        },
+        {
+          type: 'thanks',
+          url: 'https://www.instagram.com/Laser_tomsk',
         },
       ]
     },
