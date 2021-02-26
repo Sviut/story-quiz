@@ -8,8 +8,13 @@
       <div v-if="quiz.subtitle" class="sub-title">{{ quiz.subtitle }}</div>
     </div>
     <div class="bottom-section">
+      <form>
+        <input v-model="contact.name" id="name" required class="input" placeholder="Ваше имя">
+        <input v-model="contact.phone" id="phone" required type="tel" class="input" placeholder="Ваш номер телефона">
+      </form>
+
       <button
-          :disabled="disableButtons"
+          disabled
           @click="clickHandler(button, idx)"
           class="btn"
       >
@@ -22,7 +27,14 @@
 <script>
 export default {
   name: 'LeadForm',
-
+  data: function () {
+    return {
+      contact: {
+        name: '',
+        phone: '',
+      },
+    }
+  },
   props: {
     quiz: {
       type: Object,
@@ -73,13 +85,11 @@ export default {
   height: 85px;
   width: 85px;
   border: 3px solid white;
-  /*border-radius: 50%;*/
   overflow: hidden;
   margin-bottom: 15px;
 }
 
 .avatar-img img {
-  /*border-radius: 50%;*/
   height: 100%;
   width: 100%;
 }
@@ -101,6 +111,7 @@ export default {
 }
 
 .btn {
+  font-size: 15px;
   background-color: white;
   border-radius: 25px;
   color: black;
@@ -111,6 +122,12 @@ export default {
   margin-bottom: 10px;
   -webkit-box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.25);
   box-shadow: 0px 0px 7px 1px rgba(0, 0, 0, 0.25);
+}
+
+.btn:disabled {
+  background-color: lightgrey;
+  border: 2px solid transparent;
+  color: slategrey;
 }
 
 .btn:active, .btn:focus {
@@ -125,5 +142,29 @@ export default {
   background-color: var(--var-btn-color);
   border: 2px solid transparent;
   color: white;
+}
+
+.input {
+  width: 100%;
+  padding: 5px 20px;
+  margin-bottom: 10px;
+  border-radius: 50px;
+  height: 55px;
+  text-align: left;
+  border: 2px solid var(--var-btn-color);
+  font-size: 1.3rem;
+}
+
+.input::placeholder {
+  font-size: 1rem;
+  color: var(--var-btn-color);
+}
+
+.input:focus {
+  outline: none;
+}
+
+form {
+  margin-bottom: 20px;
 }
 </style>

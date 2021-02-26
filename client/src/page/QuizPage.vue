@@ -15,9 +15,7 @@
             :avatar="avatar"
             :disableButtons="disableButtons"
             @clickOnButton="nextQuiz"
-        >
-          leadForm
-        </LeadForm>
+        />
       </div>
     </transition-group>
   </div>
@@ -77,10 +75,10 @@ export default {
           title: '2',
           subtitle: 'Опрос займет всего 30 секунд!',
           actionButtons: [
-            { text: 'Пройти опрос!', save: true },
-            { text: 'Пройти опрос!', save: true },
-            { text: 'Пройти опрос!', save: true },
-            { text: 'Пройти опрос!', save: true },
+            { text: 'Пройти опрос!' },
+            { text: 'Пройти опрос!' },
+            { text: 'Пройти опрос!' },
+            { text: 'Пройти опрос!' },
           ],
         },
         {
@@ -88,7 +86,7 @@ export default {
           title: '3',
           subtitle: 'Опрос займет всего 30 секунд!',
           actionButtons: [
-            { text: 'Пройти опрос!', save: true },
+            { text: 'Пройти опрос!' },
           ],
         },
       ]
