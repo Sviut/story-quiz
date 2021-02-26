@@ -1,25 +1,26 @@
 <template>
 
   <div class="wrapper">
-    <div class="top-section">
-      <div v-if="avatar" class="avatar-img">
-        <img :src="avatar" alt="">
+    <template v-if="quiz.type === 'quiz'">
+      <div class="top-section">
+        <div v-if="avatar" class="avatar-img">
+          <img :src="avatar" alt="">
+        </div>
+        <div v-if="quiz.title" class="title">{{ quiz.title }}</div>
+        <div v-if="quiz.subtitle" class="sub-title">{{ quiz.subtitle }}</div>
       </div>
-      <div v-if="quiz.title" class="title">{{ quiz.title }}</div>
-      <div v-if="quiz.subtitle" class="sub-title">{{ quiz.subtitle }}</div>
-    </div>
-
-    <div v-if="quiz.actionButtons" class="bottom-section">
-      <button
-          :disabled="disableButtons"
-          @click="clickHandler(button, idx)"
-          :class="{'btnFill': button.type === 'fill' || selectedBtnIdx === idx}"
-          :key="idx" v-for="(button, idx) in quiz.actionButtons"
-          class="btn"
-      >
-        {{ button.text }}
-      </button>
-    </div>
+      <div v-if="quiz.actionButtons" class="bottom-section">
+        <button
+            :disabled="disableButtons"
+            @click="clickHandler(button, idx)"
+            :class="{'btnFill': button.type === 'fill' || selectedBtnIdx === idx}"
+            :key="idx" v-for="(button, idx) in quiz.actionButtons"
+            class="btn"
+        >
+          {{ button.text }}
+        </button>
+      </div>
+    </template>
   </div>
 </template>
 

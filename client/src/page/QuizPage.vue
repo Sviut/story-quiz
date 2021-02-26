@@ -1,12 +1,12 @@
 <template>
   <div class="container">
     <transition-group tag="div" class="img-slider" name="slide">
-      <div v-for="i in [idx]" :key="i">
+      <div v-for="i in [currentQuiz]" :key="i">
         <QuizCard
             class="quiz"
             :disableButtons="disableButtons"
             @clickOnButton="submit"
-            :quiz="quizList[idx]"
+            :quiz="quizList[currentQuiz]"
             :avatar="avatar"
         />
       </div>
@@ -24,19 +24,25 @@ export default {
   data: function () {
     return {
       disableButtons: false,
-      idx: 0,
+      currentQuiz: 0,
       avatar: 'https://scontent-arn2-1.cdninstagram.com/v/t51.2885-19/s320x320/61770365_641904942900088_6703438381247889408_n.jpg?_nc_ht=scontent-arn2-1.cdninstagram.com&_nc_ohc=hw7C5jltq1oAX-BnHH5&tp=1&oh=e1b497a5a8186ab138df551f24c474b3&oe=6060BB60',
     }
   },
 
   methods: {
     submit (button) {
+      if (button.save) {
+        console.log(button)
+      }
+
       this.disableButtons = true
-      console.log(button)
       setTimeout(() => {
-        this.idx += 1
+        this.nextQuiz()
         this.disableButtons = false
       }, 900)
+    },
+    nextQuiz () {
+      this.currentQuiz += 1
     },
   },
 
@@ -44,6 +50,7 @@ export default {
     quizList () {
       return [
         {
+          type: 'quiz',
           title: 'вас на процедуру за 190 руб.',
           subtitle: 'Опрос займет всего 30 секунд!',
           actionButtons: [
@@ -51,20 +58,22 @@ export default {
           ],
         },
         {
+          type: 'quiz',
           title: '2',
           subtitle: 'Опрос займет всего 30 секунд!',
           actionButtons: [
-            { text: 'Пройти опрос!' },
-            { text: 'Пройти опрос!' },
-            { text: 'Пройти опрос!' },
-            { text: 'Пройти опрос!' },
+            { text: 'Пройти опрос!', save: true },
+            { text: 'Пройти опрос!', save: true },
+            { text: 'Пройти опрос!', save: true },
+            { text: 'Пройти опрос!', save: true },
           ],
         },
         {
+          type: 'quiz',
           title: '3',
           subtitle: 'Опрос займет всего 30 секунд!',
           actionButtons: [
-            { text: 'Пройти опрос!' },
+            { text: 'Пройти опрос!', save: true },
           ],
         },
       ]
