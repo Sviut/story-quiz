@@ -104,7 +104,6 @@ export default {
 
 .card-answer:active {
   transform: scale(1.1);
-  background-color: rgb(85, 195, 61);
   transition: all 0.5s ease-in-out;
 }
 
@@ -148,5 +147,6 @@ export default {
 .card-answer__icon__selected {
   border: 2px solid rgb(85, 195, 61);
   color: rgb(85, 195, 61);
+  transition: all 0.5s ease-in-out;
 }
 </style>
