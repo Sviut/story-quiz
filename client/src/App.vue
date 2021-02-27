@@ -1,7 +1,12 @@
 <template>
-  <div id="app" @contextmenu.prevent="">
+  <div id="app"
+       @contextmenu.prevent=""
+       v-long-press="600"
+       @long-press-start="onLongPressStart"
+       @long-press-stop="onLongPressStop">
     <div class="main">
       <ProgressBar
+          :animationStopped="animationStopped"
           v-if="currentQuizCard.type !== 'final'"
           :bar-count="progressBarsCount"
           :current-bar="currentQuiz"
@@ -65,10 +70,12 @@ export default {
   },
   methods: {
     onLongPressStart () {
-      // triggers after 300ms of mousedown
+      console.log('onLongPressStart')
+      this.animationStopped = true
     },
     onLongPressStop () {
-      // triggers on mouseup of document
+      console.log('onLongPressStop')
+      this.animationStopped = false
     },
     addNewAnswer (answer) {
       this.answers.push(answer)
