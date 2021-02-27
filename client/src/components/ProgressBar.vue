@@ -69,7 +69,7 @@ export default {
 
 .progress-bar__white {
   background-color: white;
-  height: 4px;
+  height: 5px;
   width: 0;
   border-radius: 5px;
 }

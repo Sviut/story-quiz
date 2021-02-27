@@ -30,7 +30,7 @@
           @submit="submitResults"
       />
 
-      <FinalCard
+      <Thanks
           v-if="currentQuizCard.type === 'final'"
       />
     </div>
@@ -44,7 +44,7 @@ import QuestionCard from '@/components/QuestionCard'
 import ProgressBar from '@/components/ProgressBar'
 import ContactCard from '@/components/ContactCard'
 import FirstPage from '@/components/FirstPage'
-import FinalCard from '@/components/FinalCard'
+import Thanks from '@/components/Thanks'
 import { COLORS, QUIZ_LIST } from '@/constants'
 import { sendLead } from '@/api/api'
 
@@ -54,7 +54,7 @@ export default {
   },
   name: 'App',
   components: {
-    FinalCard,
+    Thanks,
     FirstPage,
     ContactCard,
     ProgressBar,
