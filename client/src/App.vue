@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" @contextmenu.prevent="">
     <div class="main">
       <ProgressBar
           v-if="currentQuizCard.type !== 'final'"
@@ -109,6 +109,11 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--var-bg-color);
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
 }
 
 #app {
