@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import LongPress from 'vue-directive-long-press'
+
 import QuestionCard from '@/components/QuestionCard'
 import ProgressBar from '@/components/ProgressBar'
 import ContactCard from '@/components/ContactCard'
@@ -41,6 +43,9 @@ import { COLORS, QUIZ_LIST } from '@/constants'
 import { sendLead } from '@/api/api'
 
 export default {
+  directives: {
+    'long-press': LongPress,
+  },
   name: 'App',
   components: {
     FinalCard,
@@ -55,19 +60,22 @@ export default {
       currentQuiz: 0,
       answers: [],
       disableQuiz: false,
+      animationStopped: false,
     }
   },
   methods: {
+    onLongPressStart () {
+      // triggers after 300ms of mousedown
+    },
+    onLongPressStop () {
+      // triggers on mouseup of document
+    },
     addNewAnswer (answer) {
-      if (this.disableQuiz) {return}
-      this.disableQuiz = true
-
       this.answers.push(answer)
 
       setTimeout(() => {
         this.nextQuiz()
-        this.disableQuiz = false
-      }, 500)
+      }, 1300)
     },
     nextQuiz () {
       this.currentQuiz = this.currentQuiz + 1

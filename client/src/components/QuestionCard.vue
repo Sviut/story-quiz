@@ -6,7 +6,8 @@
           :style="{background: getGradient}">{{ quiz.title }}
       </div>
       <div class="card-answers">
-        <div
+        <button
+            :disabled="disabled"
             v-for="(answer, idx) in quiz.answers" class="card-answer"
             :class="{'card-answer__selected' : selectedAnswer === answer}"
             @click="selectAnswer(answer)" :key="idx"
@@ -18,7 +19,7 @@
             {{ String.fromCharCode(65 + idx) }}
           </div>
           <div class="card-answer__text">{{ answer.text }}</div>
-        </div>
+        </button>
       </div>
     </div>
   </div>
@@ -40,12 +41,15 @@ export default {
   data: function () {
     return {
       selectedAnswer: '',
+      disabled: false,
     }
   },
   methods: {
     selectAnswer (answer) {
+      this.disabled = true
       this.selectedAnswer = answer
       this.$emit('addNewAnswer', { title: this.quiz.title, answer: this.selectedAnswer.text })
+      setTimeout(() => this.disabled = false, 1300)
     },
   },
   computed: {
@@ -83,11 +87,12 @@ export default {
 }
 
 .card-answer {
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   line-height: 1rem;
-  border: 1px solid gray;
+  border: 1px solid cornflowerblue;
   border-radius: 50px;
   margin: 10px;
   padding: 0 10px;
@@ -96,7 +101,18 @@ export default {
 }
 
 .card-answer:active {
-  transform: scale(1.05);
+  transform: scale(1.02);
+}
+
+.card-answer:focus {
+  outline: none;
+}
+
+.card-answers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
 }
 
 .card-answer__selected {
