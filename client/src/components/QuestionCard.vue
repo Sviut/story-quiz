@@ -96,7 +96,7 @@ export default {
   border-radius: 50px;
   margin: 10px;
   padding: 0 10px;
-  height: 55px;
+  height: 60px;
   text-align: left;
 }
 
@@ -119,7 +119,7 @@ export default {
   background-color: rgb(85, 195, 61);
   color: white;
   border: 1px solid white;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 
 .card-answer__icon {
@@ -128,7 +128,7 @@ export default {
   border-radius: 50%;
   width: 30px;
   height: 30px;
-  padding: 7.5px;
+  padding: 8px;
   background: #fff;
   text-align: center;
   font-weight: bold;
