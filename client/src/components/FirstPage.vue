@@ -12,7 +12,8 @@
       </div>
 
       <button
-          @click="$emit('clickOnButton')"
+          :disabled="disabled"
+          @click="clickHandler"
           :style="{background: getGradient}" class="btn"
       >
         <i class="far fa-check-circle"></i>
@@ -26,9 +27,20 @@
 const { COLORS } = require('@/constants')
 export default {
   name: 'FirstPage',
+  data: function () {
+    return {
+      disabled: false,
+    }
+  },
   computed: {
     getGradient () {
       return `linear-gradient(to right, rgb(${COLORS[0].from}), rgb(${COLORS[0].to}))`
+    },
+  },
+  methods: {
+    clickHandler () {
+      this.disabled = true
+      this.$emit('clickOnButton')
     },
   },
 }
@@ -76,6 +88,7 @@ export default {
   padding: 15px 25px;
   border-radius: 25px;
   font-size: 1rem;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn:focus {

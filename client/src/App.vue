@@ -81,12 +81,12 @@ export default {
     addNewAnswer (answer) {
       this.answers.push(answer)
 
-      setTimeout(() => {
-        this.nextQuiz()
-      }, 1300)
+      this.nextQuiz()
     },
     nextQuiz () {
-      this.currentQuiz = this.currentQuiz + 1
+      setTimeout(() => {
+        this.currentQuiz = this.currentQuiz + 1
+      }, 1300)
     },
     submitResults (contact) {
       this.nextQuiz()
