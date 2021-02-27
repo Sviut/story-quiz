@@ -102,6 +102,7 @@ export default {
 
 .card-answer:active {
   transform: scale(1.02);
+  background-color: rgb(85, 195, 61);
 }
 
 .card-answer:focus {
