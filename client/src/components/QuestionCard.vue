@@ -100,6 +100,7 @@ export default {
   padding: 0 10px;
   height: 50px;
   text-align: left;
+  background-color: white;
 }
 
 .card-answer:active {
@@ -148,5 +149,9 @@ export default {
   border: 2px solid rgb(85, 195, 61);
   color: rgb(85, 195, 61);
   transition: all 0.5s ease-in-out;
+}
+
+.card-answer__text {
+  font-size: 0.90rem;
 }
 </style>
