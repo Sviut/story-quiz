@@ -123,6 +123,7 @@ export default {
 }
 
 body {
+  overflow: hidden;
   margin: 0;
   padding: 0;
   -webkit-touch-callout: none; /* iOS Safari */
