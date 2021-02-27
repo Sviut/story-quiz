@@ -46,7 +46,6 @@ export default {
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  background-color: var(--var-bg-color);
   padding: 20px;
 }
 

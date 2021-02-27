@@ -50,16 +50,13 @@ export default {
     selectAnswer (answer) {
       this.disabled = true
       this.selectedAnswer = answer
-      // this.$emit('addNewAnswer', { title: this.quiz.title, answer: this.selectedAnswer.text })
+      this.$emit('addNewAnswer', { title: this.quiz.title, answer: this.selectedAnswer.text })
       setTimeout(() => this.disabled = false, 1300)
     },
   },
   computed: {
     getGradient () {
       return `linear-gradient(to right, rgb(${this.color.from}), rgb(${this.color.to}))`
-    },
-    getIconColor () {
-      return `rgb(${this.color.to})`
     },
   },
 }
