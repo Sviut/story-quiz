@@ -2,6 +2,7 @@
   <div class="progress-wrapper">
     <div class="progress-bar" :key="idx" v-for="idx in barCount">
       <div
+          :style="{animationPlayState: animationState}"
           class="progress-bar__white"
           :class="{'progress-bar__animation': isCurrent(idx - 1), 'fulled': isFull(idx -1) }"
       ></div>
@@ -13,6 +14,9 @@
 export default {
   name: 'ProgressBar',
   props: {
+    animationStopped: {
+      type: Boolean,
+    },
     currentBar: {
       type: Number,
       required: true,
@@ -22,12 +26,24 @@ export default {
       required: true,
     },
   },
+
+  data: function () {
+    return {
+      animationState: '',
+    }
+  },
+
   methods: {
     isCurrent (idx) {
       return idx === this.currentBar
     },
     isFull (idx) {
       return idx < this.currentBar
+    },
+  },
+  watch: {
+    animationStopped () {
+      this.animationState = this.animationStopped ? 'paused' : 'running'
     },
   },
 }
