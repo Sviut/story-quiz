@@ -14,7 +14,7 @@
         >
           <div
               class="card-answer__icon"
-              :style="{ color: getIconColor, border: '2px solid ' + getIconColor }"
+              :class="{'card-answer__icon__selected' : selectedAnswer === answer}"
           >
             {{ String.fromCharCode(65 + idx) }}
           </div>
@@ -92,7 +92,7 @@ export default {
   justify-content: flex-start;
   align-items: center;
   line-height: 1rem;
-  border: 1px solid cornflowerblue;
+  border: 1px solid rgb(87, 163, 252);
   border-radius: 50px;
   margin: 10px;
   padding: 0 10px;
@@ -103,6 +103,7 @@ export default {
 .card-answer:active {
   transform: scale(1.02);
   background-color: rgb(85, 195, 61);
+  transition: all 0.5s ease-in-out;
 }
 
 .card-answer:focus {
@@ -134,5 +135,12 @@ export default {
   text-align: center;
   font-weight: bold;
   margin-right: 15px;
+  border: 2px solid rgb(87, 163, 252);
+  color: rgb(87, 163, 252);
+}
+
+.card-answer__icon__selected {
+  border: 2px solid rgb(85, 195, 61);
+  color: rgb(85, 195, 61);
 }
 </style>
