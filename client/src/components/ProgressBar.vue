@@ -60,7 +60,7 @@ export default {
 }
 
 .progress-bar {
-  background-color: lightgray;
+  background-color: gainsboro;
   height: 5px;
   width: 100%;
   border-radius: 5px;

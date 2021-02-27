@@ -3,7 +3,9 @@
     <div class="card-wrapper">
       <div
           class="card-title"
-          :style="{background: getGradient}">{{ quiz.title }}
+          :style="{background: getGradient}"
+      >
+        {{ quiz.title }}
       </div>
       <div class="card-answers">
         <button
@@ -48,7 +50,7 @@ export default {
     selectAnswer (answer) {
       this.disabled = true
       this.selectedAnswer = answer
-      this.$emit('addNewAnswer', { title: this.quiz.title, answer: this.selectedAnswer.text })
+      // this.$emit('addNewAnswer', { title: this.quiz.title, answer: this.selectedAnswer.text })
       setTimeout(() => this.disabled = false, 1300)
     },
   },
@@ -94,20 +96,24 @@ export default {
   line-height: 1rem;
   border: 1px solid rgb(87, 163, 252);
   border-radius: 50px;
-  margin: 10px;
+  margin: 6px;
   padding: 0 10px;
-  height: 60px;
+  height: 50px;
   text-align: left;
 }
 
 .card-answer:active {
-  transform: scale(1.02);
+  transform: scale(1.1);
   background-color: rgb(85, 195, 61);
   transition: all 0.5s ease-in-out;
 }
 
 .card-answer:focus {
   outline: none;
+}
+
+.card-answer:disabled {
+  border: 1px solid grey;
 }
 
 .card-answers {
@@ -120,7 +126,7 @@ export default {
 .card-answer__selected {
   background-color: rgb(85, 195, 61);
   color: white;
-  border: 1px solid white;
+  border: 1px solid transparent !important;
   transition: all 0.5s ease-in-out;
 }
 
