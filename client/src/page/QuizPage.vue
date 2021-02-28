@@ -120,8 +120,7 @@ export default {
 <style scoped>
 .main {
   position: relative;
-  height: 100%;
-  padding-top: 20px;
+  height: calc(100vh - 40px);
 }
 
 .container {
