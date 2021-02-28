@@ -19,7 +19,7 @@ app.get('/ping', function (req, res) {
 	res.send('<h1>Pong!</h1>')
 })
 
-app.post('/new', function (req, res) {
+app.post('/api/new', function (req, res) {
 	try {
 		const { name, phone, quiz } = req.body
 
@@ -45,5 +45,5 @@ if (process.env.NODE_ENV === 'production') {
 	app.get(/.*/, (res, req) => res.sendfile(__dirname + '/public/index.html'))
 }
 
-app.listen(process.env.PORT || 3000,
+app.listen(process.env.PORT || 5000,
 	() => console.log('Server is running...'))
