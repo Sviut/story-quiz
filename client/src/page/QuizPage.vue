@@ -1,5 +1,6 @@
 <template>
   <div
+      class="wrapper"
       @contextmenu.prevent=""
       v-long-press="600"
       @long-press-start="onLongPressStart"
@@ -130,7 +131,8 @@ export default {
   height: calc(100vh - 40px);
 }
 
-.container {
-  padding: 20px;
+.wrapper {
+  max-width: 820px;
+  margin: auto;
 }
 </style>
