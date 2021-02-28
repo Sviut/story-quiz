@@ -4,6 +4,7 @@ const express = require('express')
 const cors = require('cors')
 const serveStatic = require('serve-static')
 const path = require('path')
+const history = require('connect-history-api-fallback')
 
 const app = express()
 
@@ -32,6 +33,11 @@ app.post('/new', function (req, res) {
 })
 
 bot.launch()
+
+const staticFileMiddleware = express.static(path.join(__dirname))
+app.use(staticFileMiddleware)
+app.use(history())
+app.use(staticFileMiddleware)
 
 if (process.env.NODE_ENV === 'production') {
 	app.use(serveStatic((__dirname + '/public/')))
