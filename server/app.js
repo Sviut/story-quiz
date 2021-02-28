@@ -14,12 +14,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cors())
 
-if (process.env.NODE_ENV === 'production') {
-	app.use(serveStatic((__dirname + '/public/')))
-
-	app.get(/.*/, (res, req) => res.sendfile(__dirname + '/public/index.html'))
-}
-
 app.get('/ping', function (req, res) {
 	res.send('<h1>Pong!</h1>')
 })
@@ -38,6 +32,12 @@ app.post('/new', function (req, res) {
 })
 
 bot.launch()
+
+if (process.env.NODE_ENV === 'production') {
+	app.use(serveStatic((__dirname + '/public/')))
+
+	app.get(/.*/, (res, req) => res.sendfile(__dirname + '/public/index.html'))
+}
 
 app.listen(process.env.PORT || 3000,
 	() => console.log('Server is running...'))
