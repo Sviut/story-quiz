@@ -36,6 +36,8 @@ app.post('/api/new', function (req, res) {
 	}
 })
 
+app.use(serveStatic((__dirname + '/images/')))
+
 bot.launch()
 
 const staticFileMiddleware = express.static(path.join(__dirname))

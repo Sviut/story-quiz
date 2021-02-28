@@ -14,6 +14,8 @@
       />
 
       <FirstPage
+          @imageLoaded="isLoad = false"
+          :image="quizList[0].image"
           @clickOnButton="nextQuiz"
           v-if="currentQuizCard.type === 'first'"
       />
@@ -62,6 +64,12 @@ export default {
     ProgressBar,
     QuestionCard,
   },
+  watch: {
+    isLoad (val, old) {
+      console.log(val, old)
+      this.isLoad = val
+    },
+  },
   data: function () {
     return {
       quizList: null,
@@ -69,13 +77,18 @@ export default {
       answers: [],
       disableQuiz: false,
       animationStopped: false,
+      isLoad: false,
     }
   },
   async created () {
+    this.isLoad = true
     const quizData = await getQuiz()
     this.quizList = quizData.quiz
   },
   methods: {
+    loaded () {
+      this.isLoad = false
+    },
     onLongPressStart () {
       console.log('onLongPressStart')
       this.animationStopped = true

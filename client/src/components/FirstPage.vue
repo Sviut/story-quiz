@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="card-wrapper">
       <div class="image-container">
-        <img src="../assets/images/lazer.jpg" alt="">
+        <img v-if="image" :src="image">
       </div>
       <div class="text-container">
         <div class="text-title">
@@ -29,6 +29,11 @@
 const { COLORS } = require('@/constants')
 export default {
   name: 'FirstPage',
+  props: {
+    image: {
+      type: String,
+    },
+  },
   data: function () {
     return {
       disabled: false,
@@ -40,6 +45,10 @@ export default {
     },
   },
   methods: {
+    loaded () {
+      console.log('imageLoaded')
+      this.$emit('imageLoaded')
+    },
     clickHandler () {
       this.disabled = true
       this.$emit('clickOnButton')
