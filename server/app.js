@@ -1,13 +1,13 @@
-const bodyParser = require('body-parser')
-const { Telegraf } = require('telegraf')
 const express = require('express')
 const cors = require('cors')
 const serveStatic = require('serve-static')
 const path = require('path')
 const history = require('connect-history-api-fallback')
+const QUIZ = require('./quiz')
+const bodyParser = require('body-parser')
+const { Telegraf } = require('telegraf')
 
 const app = express()
-
 const bot = new Telegraf('1580851464:AAGr-0IO3LLKdxqw74NRo4cTMg_3KJsPYo0')
 const CHAT_ID = '-597719238'
 
@@ -15,8 +15,12 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cors())
 
-app.get('/ping', function (req, res) {
+app.get('/api/ping', function (req, res) {
 	res.send('<h1>Pong!</h1>')
+})
+
+app.get('/api/quiz', (req, res) => {
+	res.json({ quiz: QUIZ })
 })
 
 app.post('/api/new', function (req, res) {

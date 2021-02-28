@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    {{ this.$route.params.id }}
     <router-view/>
   </div>
 </template>

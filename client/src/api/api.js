@@ -9,3 +9,12 @@ export async function sendLead (lead) {
 		console.log(e)
 	}
 }
+
+export async function getQuiz () {
+	try {
+		const { data } = await axios.get(url + 'quiz')
+		return data
+	} catch (e) {
+		console.log(e)
+	}
+}

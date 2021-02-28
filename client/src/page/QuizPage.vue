@@ -5,7 +5,7 @@
       @long-press-start="onLongPressStart"
       @long-press-stop="onLongPressStop"
   >
-    <div class="main">
+    <div class="main" v-if="quizList">
       <ProgressBar
           :animationStopped="animationStopped"
           v-if="currentQuizCard.type === 'question' || currentQuizCard.type === 'first'"
@@ -34,6 +34,7 @@
           v-if="currentQuizCard.type === 'final'"
       />
     </div>
+    <Loader style="margin-top: 50%;" v-else/>
   </div>
 </template>
 
@@ -44,8 +45,9 @@ import FirstPage from '@/components/FirstPage'
 import ContactCard from '@/components/ContactCard'
 import ProgressBar from '@/components/ProgressBar'
 import QuestionCard from '@/components/QuestionCard'
-import { COLORS, QUIZ_LIST } from '@/constants'
-import { sendLead } from '@/api/api'
+import { COLORS } from '@/constants'
+import { getQuiz, sendLead } from '@/api/api'
+import Loader from '@/components/Loader'
 
 export default {
   name: 'QuizPage',
@@ -53,6 +55,7 @@ export default {
     'long-press': LongPress,
   },
   components: {
+    Loader,
     Thanks,
     FirstPage,
     ContactCard,
@@ -61,12 +64,16 @@ export default {
   },
   data: function () {
     return {
-      quizList: QUIZ_LIST,
+      quizList: null,
       currentQuiz: 0,
       answers: [],
       disableQuiz: false,
       animationStopped: false,
     }
+  },
+  async created () {
+    const quizData = await getQuiz()
+    this.quizList = quizData.quiz
   },
   methods: {
     onLongPressStart () {
@@ -114,6 +121,7 @@ export default {
 .main {
   position: relative;
   height: 100%;
+  padding-top: 20px;
 }
 
 .container {
