@@ -6,10 +6,16 @@ const history = require('connect-history-api-fallback')
 const QUIZ = require('./quiz')
 const bodyParser = require('body-parser')
 const { Telegraf } = require('telegraf')
+const subdomain = require('express-subdomain')
 
 const app = express()
 const bot = new Telegraf('1580851464:AAGr-0IO3LLKdxqw74NRo4cTMg_3KJsPYo0')
 const CHAT_ID = '-597719238'
+
+app.panel = express.Router()
+app.use(subdomain('panel', app.panel))
+
+app.set('subdomain offset', 1)
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -51,6 +57,7 @@ if (process.env.NODE_ENV === 'production') {
 	app.use(serveStatic((__dirname + '/public/')))
 
 	app.get(/.*/, (res, req) => res.sendfile(__dirname + '/public/index.html'))
+	app.panel.get(/.*/, (req, res) => res.sendfile(__dirname + '/panel/index.html'))
 }
 
 app.listen(process.env.PORT || 5000,
