@@ -13,6 +13,7 @@ const CHAT_ID = '-597719238'
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+
 app.use(cors())
 
 app.get('/api/ping', function (req, res) {
@@ -36,7 +37,8 @@ app.post('/api/new', function (req, res) {
 	}
 })
 
-app.use(serveStatic((__dirname + '/images/')))
+app.use('/images', express.static(path.join(__dirname, 'images')))
+// app.use(serveStatic((__dirname + '/images/')))
 
 bot.launch()
 
