@@ -13,6 +13,7 @@
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-directive-long-press": "^1.1.0",
+    "vue-router": "^3.5.1",
     "vue-social-sharing": "^3.0.4"
   },
   "devDependencies": {
