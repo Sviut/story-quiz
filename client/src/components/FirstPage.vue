@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="card-wrapper">
       <div class="image-container">
-        <img v-if="image" :src="image">
+        <img v-if="image" :src="image" @load="onLoaded">
       </div>
       <div class="text-container">
         <div class="text-title">
@@ -45,8 +45,7 @@ export default {
     },
   },
   methods: {
-    loaded () {
-      console.log('imageLoaded')
+    onLoaded () {
       this.$emit('imageLoaded')
     },
     clickHandler () {

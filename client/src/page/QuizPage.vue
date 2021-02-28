@@ -5,7 +5,7 @@
       @long-press-start="onLongPressStart"
       @long-press-stop="onLongPressStop"
   >
-    <div class="main" v-if="quizList">
+    <div class="main" v-if="quizList" v-show="quizList && isLoaded">
       <ProgressBar
           :animationStopped="animationStopped"
           v-if="currentQuizCard.type === 'question' || currentQuizCard.type === 'first'"
@@ -14,8 +14,8 @@
       />
 
       <FirstPage
-          @imageLoaded="isLoad = false"
-          :image="quizList[0].image"
+          @imageLoaded="isLoaded = true"
+          :image="currentQuizCard.image"
           @clickOnButton="nextQuiz"
           v-if="currentQuizCard.type === 'first'"
       />
@@ -36,7 +36,7 @@
           v-if="currentQuizCard.type === 'final'"
       />
     </div>
-    <Loader style="margin-top: 50%;" v-else/>
+    <Loader v-else/>
   </div>
 </template>
 
@@ -64,12 +64,6 @@ export default {
     ProgressBar,
     QuestionCard,
   },
-  watch: {
-    isLoad (val, old) {
-      console.log(val, old)
-      this.isLoad = val
-    },
-  },
   data: function () {
     return {
       quizList: null,
@@ -77,17 +71,17 @@ export default {
       answers: [],
       disableQuiz: false,
       animationStopped: false,
-      isLoad: false,
+      isLoaded: false,
     }
   },
   async created () {
-    this.isLoad = true
     const quizData = await getQuiz()
     this.quizList = quizData.quiz
   },
   methods: {
-    loaded () {
-      this.isLoad = false
+    onLoaded () {
+      console.log('isLoaded')
+      this.isLoaded = true
     },
     onLongPressStart () {
       console.log('onLongPressStart')
