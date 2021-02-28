@@ -36,7 +36,7 @@
           v-if="currentQuizCard.type === 'final'"
       />
     </div>
-    <Loader v-else/>
+    <Loader style="margin-top: 50%" v-else/>
   </div>
 </template>
 
