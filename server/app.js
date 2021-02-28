@@ -14,7 +14,11 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cors())
 
-app.use('/', serveStatic(path.join(__dirname, '../client/dist')))
+if (process.env.NODE_ENV === 'production') {
+	app.use(serveStatic((__dirname + '/public/')))
+
+	app.get(/.*/, (res, req) => res.sendfile(__dirname + '/public/index.html'))
+}
 
 app.get('/ping', function (req, res) {
 	res.send('<h1>Pong!</h1>')
