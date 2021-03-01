@@ -6,15 +6,20 @@ const history = require('connect-history-api-fallback')
 const QUIZ = require('./quiz')
 const bodyParser = require('body-parser')
 const { Telegraf } = require('telegraf')
-
-const app = express()
+require('dotenv').config()
+const sequelize = require('./db')
+const models = require('./models/models')
 const bot = new Telegraf('1580851464:AAGr-0IO3LLKdxqw74NRo4cTMg_3KJsPYo0')
 const CHAT_ID = '-597719238'
+const router = require('./routes/index')
 
+const app = express()
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-
 app.use(cors())
+app.use(express.json())
+
+app.use('/api', router)
 
 app.get('/api/ping', function (req, res) {
 	res.send('<h1>Pong!</h1>')
@@ -55,5 +60,15 @@ if (process.env.NODE_ENV === 'production') {
 	app.get('*', (res, req) => res.sendfile(__dirname + '/public/index.html'))
 }
 
-app.listen(process.env.PORT || 5000,
-	() => console.log('Server is running...'))
+const start = async () => {
+	try {
+		await sequelize.authenticate()
+		await sequelize.sync()
+		app.listen(process.env.PORT || 5000, () => console.log('Server is running...'))
+
+	} catch (e) {
+		console.log(e)
+	}
+}
+
+start()
