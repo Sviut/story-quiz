@@ -12,6 +12,7 @@ const models = require('./models/models')
 const bot = new Telegraf('1580851464:AAGr-0IO3LLKdxqw74NRo4cTMg_3KJsPYo0')
 const CHAT_ID = '-597719238'
 const router = require('./routes/index')
+const errorHandler = require('./middleware/ErrorHandlingMiddleware')
 
 const app = express()
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -59,6 +60,8 @@ if (process.env.NODE_ENV === 'production') {
 	app.get('/panel/*', (req, res) => res.sendfile(__dirname + '/panel/index.html'))
 	app.get('*', (res, req) => res.sendfile(__dirname + '/public/index.html'))
 }
+
+app.use(errorHandler)
 
 const start = async () => {
 	try {
