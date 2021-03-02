@@ -61,13 +61,13 @@ if (process.env.NODE_ENV === 'production') {
 	app.get('*', (res, req) => res.sendfile(__dirname + '/public/index.html'))
 }
 
-app.use(errorHandler)
+// app.use(errorHandler)
 
 const start = async () => {
 	try {
 		await sequelize.authenticate()
 		await sequelize.sync()
-		app.listen(process.env.PORT || 5000, () => console.log('Server is running...'))
+		app.listen(process.env.PORT || 5000, () => console.log('Server is running...' + process.env.PORT || 5000))
 
 	} catch (e) {
 		console.log(e)
