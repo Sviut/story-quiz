@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 const uuid = require('uuid')
 const ApiError = require('../error/apiError')
 
-const { User } = require('../models/models')
+const User = require('../models/User')
 
 const generateJwt = (id, email) => {
 	return jwt.sign(
@@ -19,24 +19,24 @@ class UserController {
 		if (!email || !password) {
 			return next(ApiError.badRequest('Incorrect email or password'))
 		}
-		const candidate = await User.findOne({ where: { email } })
+		const candidate = await User.findOne({ email })
 		if (candidate) {
 			return next(ApiError.badRequest('User with this email already exists'))
 		}
 		const hashPassword = await bcrypt.hash(password, 5)
-		const userId = uuid.v4()
-		const user = await User.create({ id: userId, email, password: hashPassword })
+		const user = new User({ email, password: hashPassword })
+		await user.save()
 		const token = generateJwt(user.id, user.email)
 		return res.json({ token })
 	}
 
 	async login (req, res, next) {
 		const { email, password } = req.body
-		const user = await User.findOne({ where: { email } })
+		const user = await User.findOne({ email })
 		if (!user) {
 			return next(ApiError.internal('User not found'))
 		}
-		
+
 		let comparePassword = bcrypt.compareSync(password, user.password)
 		if (!comparePassword) {
 			return next(ApiError.internal('Incorrect password'))

@@ -4,21 +4,17 @@ const serveStatic = require('serve-static')
 const path = require('path')
 const history = require('connect-history-api-fallback')
 const QUIZ = require('./quiz')
-const bodyParser = require('body-parser')
 const { Telegraf } = require('telegraf')
 require('dotenv').config()
-const sequelize = require('./db')
-const models = require('./models/models')
 const bot = new Telegraf('1580851464:AAGr-0IO3LLKdxqw74NRo4cTMg_3KJsPYo0')
 const CHAT_ID = '-597719238'
 const router = require('./routes/index')
 const errorHandler = require('./middleware/ErrorHandlingMiddleware')
+const mongoose = require('mongoose')
 
 const app = express()
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
-app.use(cors())
 app.use(express.json())
+app.use(cors())
 
 app.use('/api', router)
 
@@ -61,12 +57,11 @@ if (process.env.NODE_ENV === 'production') {
 	app.get('*', (res, req) => res.sendfile(__dirname + '/public/index.html'))
 }
 
-// app.use(errorHandler)
+app.use(errorHandler)
 
 const start = async () => {
 	try {
-		await sequelize.authenticate()
-		await sequelize.sync()
+		await mongoose.connect(process.env.MONGO_URI)
 		app.listen(process.env.PORT || 5000, () => console.log('Server is running...' + process.env.PORT || 5000))
 
 	} catch (e) {
