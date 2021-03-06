@@ -1,11 +1,12 @@
 <template>
-  <div id="app"
-       @contextmenu.prevent=""
-       v-long-press="600"
-       @long-press-start="onLongPressStart"
-       @long-press-stop="onLongPressStop"
+  <div
+      @contextmenu.prevent=""
+      v-long-press="600"
+      @long-press-start="onLongPressStart"
+      @long-press-stop="onLongPressStop"
+      class="flex h-screen justify-center items-center p-5"
   >
-    <div class="main">
+    <div>
       <ProgressBar
           :animationStopped="animationStopped"
           v-if="currentQuizCard.type === 'question' || currentQuizCard.type === 'first'"
@@ -124,8 +125,10 @@ export default {
 
 body {
   overflow: hidden;
-  margin: 0;
-  padding: 0;
+
+  height: 100vh;
+  /*margin: 0;*/
+  /*padding: 0;*/
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Old versions of Firefox */
@@ -136,20 +139,20 @@ body {
 
 #app {
   font-family: 'Poppins', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin: 0;
-  padding: 0;
-  /*height: calc(100vh - 40px);*/
-  height: 100vh;
-  width: 100vw;
+  /*-webkit-font-smoothing: antialiased;*/
+  /*-moz-osx-font-smoothing: grayscale;*/
+  /*text-align: center;*/
+  /*color: #2c3e50;*/
+  /*margin: 0;*/
+  /*padding: 0;*/
+  /*!*height: calc(100vh - 40px);*!*/
+  /*height: 100vh;*/
+  /*width: 100vw;*/
 }
 
 .main {
   position: relative;
-  height: 100%;
+  /*height: 100%;*/
 }
 
 .container {

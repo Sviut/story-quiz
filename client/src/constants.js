@@ -8,9 +8,9 @@ export const COLORS = [
 ]
 
 export const QUIZ_LIST = [
-	{
-		type: 'first',
-	},
+	// {
+	// 	type: 'first',
+	// },
 	{
 		type: 'question',
 		title: 'Как Вы относитесь к лазерной эпиляции?',

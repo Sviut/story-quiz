@@ -1,35 +1,28 @@
 <template>
-  <div class="wrapper">
-    <div class="card-wrapper">
-      <div
-          class="card-title"
-          :style="{background: getGradient}"
-      >
-        {{ quiz.title }}
-      </div>
-      <div class="card-answers">
-        <button
-            :disabled="disabled"
-            v-for="(answer, idx) in quiz.answers" class="card-answer"
-            :class="{'card-answer__selected' : selectedAnswer === answer}"
-            @click="selectAnswer(answer)" :key="idx"
-        >
-          <div
-              class="card-answer__icon"
-              :class="{'card-answer__icon__selected' : selectedAnswer === answer}"
-          >
-            {{ String.fromCharCode(65 + idx) }}
-          </div>
-          <div class="card-answer__text">{{ answer.text }}</div>
-        </button>
-      </div>
+  <div class="bg-white rounded-3xl">
+    <div
+        class="bg-gradient-to-r from-purple-400 via-pink-500 to-red-400 text-white p-5 uppercase leading-4 rounded-t-3xl text-center text-sm md:text-2xl"
+    >
+      {{ quiz.title }}
+    </div>
+    <div class="flex flex-col space-y-2 p-2">
+      <AnswerButton
+          @click.native="selectAnswer(answer)"
+          v-for="(answer, idx) in quiz.answers" :key="idx"
+          :text="answer.text"
+          :index="idx"
+          :is-selected="selectedAnswer === answer"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import AnswerButton from '@/components/common/AnswerButton'
+
 export default {
   name: 'QuestionCard',
+  components: { AnswerButton },
   props: {
     quiz: {
       type: Object,
@@ -48,6 +41,9 @@ export default {
   },
   methods: {
     selectAnswer (answer) {
+      if (this.disabled) {
+        return
+      }
       this.disabled = true
       this.selectedAnswer = answer
       this.$emit('addNewAnswer', { title: this.quiz.title, answer: this.selectedAnswer.text })

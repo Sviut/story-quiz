@@ -1,13 +1,13 @@
 <template>
   <div
-      class="w-full rounded-3xl px-2.5 flex items-center h-12 transition-colors duration-200 ease-in-out"
+      class="w-full rounded-full px-2.5 flex items-center h-12 transition-colors duration-200 ease-in-out text-sm md:text-2xl md:h-16"
       :class="{
         'bg-insta-green text-white border border-green-400' : isSelected,
         'border-blue-400 border': !isSelected
       }"
   >
     <span
-        class="flex-shrink-0 h-8 w-8 text-blue-400 rounded-full font-mono font-bold flex items-center justify-center mr-2.5"
+        class="flex-shrink-0 h-8 w-8 text-blue-400 rounded-full font-mono font-bold flex items-center justify-center mr-2.5 md:h-12 md:w-12"
         :class="{
           'bg-white border-green-400' : isSelected,
           'border-blue-400 border-2': !isSelected
