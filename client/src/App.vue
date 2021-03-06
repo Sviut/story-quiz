@@ -4,37 +4,34 @@
       v-long-press="600"
       @long-press-start="onLongPressStart"
       @long-press-stop="onLongPressStop"
-      class="flex h-screen justify-center items-center p-5"
+      class="flex h-screen w-full	relative justify-center items-center p-5 overflow-hidden p-0 m-0"
   >
-    <div>
-      <ProgressBar
-          :animationStopped="animationStopped"
-          v-if="currentQuizCard.type === 'question' || currentQuizCard.type === 'first'"
-          :bar-count="progressBarsCount"
-          :current-bar="currentQuiz"
-      />
+    <ProgressBar
+        :animationStopped="animationStopped"
+        v-if="currentQuizCard.type === 'question' || currentQuizCard.type === 'first'"
+        :bar-count="progressBarsCount"
+        :current-bar="currentQuiz"
+    />
+    <FirstPage
+        @clickOnButton="nextQuiz"
+        v-if="currentQuizCard.type === 'first'"
+    />
 
-      <FirstPage
-          @clickOnButton="nextQuiz"
-          v-if="currentQuizCard.type === 'first'"
-      />
+    <QuestionCard
+        v-if="currentQuizCard.type === 'question'"
+        @addNewAnswer="addNewAnswer"
+        :quiz="currentQuizCard"
+        :color="quizColors"
+    />
 
-      <QuestionCard
-          v-if="currentQuizCard.type === 'question'"
-          @addNewAnswer="addNewAnswer"
-          :quiz="currentQuizCard"
-          :color="quizColors"
-      />
+    <ContactCard
+        v-if="currentQuizCard.type === 'form'"
+        @submit="submitResults"
+    />
 
-      <ContactCard
-          v-if="currentQuizCard.type === 'form'"
-          @submit="submitResults"
-      />
-
-      <Thanks
-          v-if="currentQuizCard.type === 'final'"
-      />
-    </div>
+    <Thanks
+        v-if="currentQuizCard.type === 'final'"
+    />
   </div>
 </template>
 
@@ -138,7 +135,7 @@ body {
 }
 
 #app {
-  font-family: 'Poppins', sans-serif;
+  /*font-family: 'Poppins', sans-serif;*/
   /*-webkit-font-smoothing: antialiased;*/
   /*-moz-osx-font-smoothing: grayscale;*/
   /*text-align: center;*/
