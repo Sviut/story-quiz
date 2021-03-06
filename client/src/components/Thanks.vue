@@ -1,13 +1,11 @@
 <template>
-  <div class="wrapper">
-    <div class="card-wrapper">
-      <div class="image-container">
-        <img src="../assets/images/lazer.jpg" alt="">
-      </div>
-      <div class="text-container">
-        <h3>Спасибо!</h3>
-        <h4>Мы свяжемся с Вами <br> в ближайшее время!</h4>
-      </div>
+  <div class="bg-white rounded-3xl max-w-2xl">
+    <div>
+      <img src="../assets/images/lazer.jpg" class="rounded-t-3xl">
+    </div>
+    <div class="p-5 flex flex-col items-center">
+      <h3>Спасибо!</h3>
+      <h4>Мы свяжемся с Вами <br> в ближайшее время!</h4>
     </div>
   </div>
 </template>
@@ -34,66 +32,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px;
-  height: 100%;
-}
-
-.card-wrapper {
-  border-radius: 25px;
-  background-color: white;
-}
-
-.image-container {
-  margin-bottom: 40px;
-  border-radius: 20px;
-}
-
-.image-container img {
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-  max-width: 100%;
-  object-fit: cover;
-}
-
-.text-container {
-  padding-bottom: 20px;
-}
-
-.text-title {
-  font-size: 1.2rem;
-  line-height: 1.2rem;
-  margin-bottom: 20px;
-}
-
-.text-subtitle {
-  font-size: 0.5rem;
-  margin-bottom: 10px;
-  color: white;
-}
-
-.btn {
-  border: none;
-  text-transform: uppercase;
-  color: white;
-  font-weight: bold;
-  padding: 15px 25px;
-  border-radius: 25px;
-  font-size: 1rem;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.btn:focus {
-  outline: none;
-}
-
-.btn:active {
-  transform: scale(0.98);
-}
-</style>
