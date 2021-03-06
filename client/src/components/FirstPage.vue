@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="card-wrapper">
       <div class="image-container">
-        <img v-if="image" :src="image" @load="onLoaded">
+        <img <img v-if="image" :src="image" @load="onLoaded">
       </div>
       <div class="text-container">
         <div class="text-title">
@@ -12,21 +12,20 @@
           Опрос займет всего 30 секунд!
         </div>
 
-        <button
-            :disabled="disabled"
-            @click="clickHandler"
-            :style="{background: getGradient}" class="btn"
-        >
-          <i class="far fa-check-circle"></i>
-          Пройти опрос!
-        </button>
-      </div>
+      <button
+          :disabled="disabled"
+          @click="clickHandler"
+          class="bg-gradient-to-r from-green-400 to-blue-500 text-white py-2 px-4 rounded-full uppercase"
+          style="outline:none;"
+      >
+        <i class="far fa-check-circle"></i>
+        Пройти опрос!
+      </button>
     </div>
   </div>
 </template>
 
 <script>
-const { COLORS } = require('@/constants')
 export default {
   name: 'FirstPage',
   props: {
@@ -39,11 +38,6 @@ export default {
       disabled: false,
     }
   },
-  computed: {
-    getGradient () {
-      return `linear-gradient(to right, rgb(${COLORS[0].from}), rgb(${COLORS[0].to}))`
-    },
-  },
   methods: {
     onLoaded () {
       this.$emit('imageLoaded')
@@ -55,66 +49,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px;
-  height: 100%;
-}
-
-.card-wrapper {
-  border-radius: 25px;
-  background-color: white;
-}
-
-.image-container {
-  margin-bottom: 40px;
-  border-radius: 20px;
-}
-
-.image-container img {
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-  max-width: 100%;
-  object-fit: cover;
-}
-
-.text-container {
-  padding-bottom: 20px;
-}
-
-.text-title {
-  font-size: 1.2rem;
-  line-height: 1.2rem;
-  margin-bottom: 20px;
-}
-
-.text-subtitle {
-  font-size: 0.5rem;
-  margin-bottom: 10px;
-  color: white;
-}
-
-.btn {
-  border: none;
-  text-transform: uppercase;
-  color: white;
-  font-weight: bold;
-  padding: 15px 25px;
-  border-radius: 25px;
-  font-size: 1rem;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.btn:focus {
-  outline: none;
-}
-
-.btn:active {
-  transform: scale(0.98);
-}
-</style>

@@ -3,6 +3,7 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import { initMetrika } from '@/metrika'
 import QuizPage from '@/page/QuizPage'
+import './index.css'
 
 const routes = [
 	{ path: '/:id', component: QuizPage },
