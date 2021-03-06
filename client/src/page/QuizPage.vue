@@ -6,7 +6,7 @@
       @long-press-start="onLongPressStart"
       @long-press-stop="onLongPressStop"
   >
-    <div class="main" v-if="quizList" v-show="quizList && isLoaded">
+    <div class="main" v-if="quizList" v-show="quizList">
       <ProgressBar
           :animationStopped="animationStopped"
           v-if="currentQuizCard.type === 'question' || currentQuizCard.type === 'first'"
@@ -47,10 +47,10 @@ import Thanks from '@/components/Thanks'
 import FirstPage from '@/components/FirstPage'
 import ContactCard from '@/components/ContactCard'
 import ProgressBar from '@/components/ProgressBar'
-import QuestionCard from '@/components/QuestionCard'
 import { COLORS } from '@/constants'
 import { getQuiz, sendLead } from '@/api/api'
 import Loader from '@/components/Loader'
+import QuestionCard from '@/components/QuestionCard/QuestionCard'
 
 export default {
   name: 'QuizPage',
@@ -124,15 +124,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-.main {
-  position: relative;
-  height: calc(100vh - 40px);
-}
-
-.wrapper {
-  max-width: 820px;
-  margin: auto;
-}
-</style>

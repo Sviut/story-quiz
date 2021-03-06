@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="card-wrapper">
       <div class="image-container">
-        <img <img v-if="image" :src="image" @load="onLoaded">
+        <img v-if="image" :src="image" @load="onLoaded">
       </div>
       <div class="text-container">
         <div class="text-title">
@@ -12,15 +12,16 @@
           Опрос займет всего 30 секунд!
         </div>
 
-      <button
-          :disabled="disabled"
-          @click="clickHandler"
-          class="bg-gradient-to-r from-green-400 to-blue-500 text-white py-2 px-4 rounded-full uppercase"
-          style="outline:none;"
-      >
-        <i class="far fa-check-circle"></i>
-        Пройти опрос!
-      </button>
+        <button
+            :disabled="disabled"
+            @click="clickHandler"
+            class="bg-gradient-to-r from-green-400 to-blue-500 text-white py-2 px-4 rounded-full uppercase"
+            style="outline:none;"
+        >
+          <i class="far fa-check-circle"></i>
+          Пройти опрос!
+        </button>
+      </div>
     </div>
   </div>
 </template>
