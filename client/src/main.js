@@ -1,10 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
-import VueSocialSharing from 'vue-social-sharing'
+import './index.css'
 
 Vue.config.productionTip = false
-
-Vue.use(VueSocialSharing)
 
 function initMetrika () {
 	(function (m, e, t, r, i, k, a) {
