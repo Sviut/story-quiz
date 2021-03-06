@@ -11,18 +11,15 @@
         Опрос займет всего 30 секунд!
       </div>
 
-      <div class="relative flex justify-center items-center">
-        <button
-            :disabled="disabled"
-            @click="clickHandler"
-            class="bg-gradient-to-r from-green-400 to-blue-500 text-white py-2 px-4 rounded-full uppercase"
-            style="outline:none;"
-        >
-          <i class="far fa-check-circle"></i>
-          Пройти опрос!
-        </button>
-        <span class="animate-ping absolute inline-flex h-2/3 w-2/3 rounded-full bg-green-200 opacity-75"></span>
-      </div>
+      <button
+          :disabled="disabled"
+          @click="clickHandler"
+          class="bg-gradient-to-r from-green-400 to-blue-500 text-white py-2 px-4 rounded-full uppercase"
+          style="outline:none;"
+      >
+        <i class="far fa-check-circle"></i>
+        Пройти опрос!
+      </button>
     </div>
   </div>
 </template>
