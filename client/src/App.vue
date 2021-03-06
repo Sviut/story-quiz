@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="flex h-screen w-full	relative justify-center items-center p-5 overflow-hidden p-0 m-0">
     <router-view/>
   </div>
 </template>
