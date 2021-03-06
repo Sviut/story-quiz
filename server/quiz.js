@@ -1,7 +1,7 @@
 const QUIZ = [
   {
     type: "first",
-    // image: 'https://story-quiz-stage.herokuapp.com/images/lazer.jpg',
+    image: "https://story-quiz-stage.herokuapp.com/images/lazer.jpg",
   },
   {
     type: "question",
