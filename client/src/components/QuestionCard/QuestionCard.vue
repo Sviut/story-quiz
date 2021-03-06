@@ -8,7 +8,8 @@
     <div class="flex flex-col space-y-2 p-2">
       <AnswerButton
           @click.native="selectAnswer(answer)"
-          v-for="(answer, idx) in quiz.answers" :key="idx"
+          v-for="(answer, idx) in quiz.answers"
+          :key="idx"
           :text="answer.text"
           :index="idx"
           :is-selected="selectedAnswer === answer"
@@ -46,8 +47,11 @@ export default {
       }
       this.disabled = true
       this.selectedAnswer = answer
-      this.$emit('addNewAnswer', { title: this.quiz.title, answer: this.selectedAnswer.text })
-      setTimeout(() => this.disabled = false, 1300)
+      this.$emit('addNewAnswer', {
+        title: this.quiz.title,
+        answer: this.selectedAnswer.text,
+      })
+      setTimeout(() => (this.disabled = false), 1300)
     },
   },
   computed: {
