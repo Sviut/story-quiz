@@ -12,11 +12,8 @@ module.exports = {
 		},
 	},
 	variants: {
-		outline: ['focus'],
-		// backgroundColor: ['active'],
 		extend: {
-			textColor: ['group-focus'],
-			borderColor: ['group-focus'],
+			backgroundColor: ['active'],
 		},
 	},
 	plugins: [],

@@ -1,43 +1,39 @@
 <template>
-  <div class="wrapper">
-    <div class="card-wrapper">
-      <div class="image-container">
-        <img src="../assets/images/lazer.jpg" alt="">
+  <div class="p-5">
+    <div class="rounded-t-3xl max-w-2xl">
+      <img src="../assets/images/lazer.jpg" class="rounded-t-3xl">
+    </div>
+    <div class="flex flex-col items-center space-y-2 bg-white rounded-b-3xl p-2">
+      <div class='text-center leading-4'>
+        Ответьте на несколько простых вопросов и мы запишем вас на процедуру за 190 руб.
       </div>
-      <div class="text-container">
-        <div class="text-title">
-          Ответьте на несколько простых вопросов и мы запишем вас на процедуру за 190 руб.
-        </div>
-        <div class="text-subtitle">
-          Опрос займет всего 30 секунд!
-        </div>
+      <div class="text-sm text-gray-600">
+        Опрос займет всего 30 секунд!
+      </div>
 
+      <div class="relative flex justify-center items-center">
         <button
             :disabled="disabled"
             @click="clickHandler"
-            :style="{background: getGradient}" class="btn"
+            class="bg-gradient-to-r from-green-400 to-blue-500 text-white py-2 px-4 rounded-full uppercase"
+            style="outline:none;"
         >
           <i class="far fa-check-circle"></i>
           Пройти опрос!
         </button>
+        <span class="animate-ping absolute inline-flex h-2/3 w-2/3 rounded-full bg-green-200 opacity-75"></span>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-const { COLORS } = require('@/constants')
 export default {
   name: 'FirstPage',
   data: function () {
     return {
       disabled: false,
     }
-  },
-  computed: {
-    getGradient () {
-      return `linear-gradient(to right, rgb(${COLORS[0].from}), rgb(${COLORS[0].to}))`
-    },
   },
   methods: {
     clickHandler () {
@@ -47,66 +43,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 20px;
-  height: 100%;
-}
-
-.card-wrapper {
-  border-radius: 25px;
-  background-color: white;
-}
-
-.image-container {
-  margin-bottom: 40px;
-  border-radius: 20px;
-}
-
-.image-container img {
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
-  max-width: 100%;
-  object-fit: cover;
-}
-
-.text-container {
-  padding-bottom: 20px;
-}
-
-.text-title {
-  font-size: 1.2rem;
-  line-height: 1.2rem;
-  margin-bottom: 20px;
-}
-
-.text-subtitle {
-  font-size: 0.5rem;
-  margin-bottom: 10px;
-  color: white;
-}
-
-.btn {
-  border: none;
-  text-transform: uppercase;
-  color: white;
-  font-weight: bold;
-  padding: 15px 25px;
-  border-radius: 25px;
-  font-size: 1rem;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.btn:focus {
-  outline: none;
-}
-
-.btn:active {
-  transform: scale(0.98);
-}
-</style>
