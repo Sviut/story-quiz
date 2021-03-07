@@ -14,7 +14,7 @@ export default {
 }
 
 body {
-  /*height: 100vh;*/
+  height: 100vh;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Old versions of Firefox */
