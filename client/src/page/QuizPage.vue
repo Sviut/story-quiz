@@ -1,19 +1,21 @@
 <template>
   <div
-      class="wrapper"
+      class="flex h-screen w-full relative justify-center items-center p-5 overflow-hidden p-0 m-0"
       @contextmenu.prevent=""
       v-long-press="600"
       @long-press-start="onLongPressStart"
       @long-press-stop="onLongPressStop"
   >
-    <div class="main" v-if="quizList" v-show="quizList">
-      <ProgressBar
-          :animationStopped="animationStopped"
-          v-if="currentQuizCard.type === 'question' || currentQuizCard.type === 'first'"
-          :bar-count="progressBarsCount"
-          :current-bar="currentQuiz"
-      />
+    <ProgressBar
+        class="absolute top-5"
+        :animationStopped="animationStopped"
+        v-if="quizList && (currentQuizCard.type === 'question' || currentQuizCard.type === 'first')"
+        :bar-count="progressBarsCount"
+        :current-bar="currentQuiz"
+    />
 
+
+    <div v-if="quizList" v-show="quizList">
       <FirstPage
           @imageLoaded="isLoaded = true"
           :image="currentQuizCard.image"
