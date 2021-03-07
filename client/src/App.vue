@@ -1,5 +1,7 @@
 <template>
-  <router-view/>
+  <div class="overflow-hidden h-screen">
+    <router-view/>
+  </div>
 </template>
 
 <script>
@@ -14,7 +16,6 @@ export default {
 }
 
 body {
-  height: 100vh;
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Old versions of Firefox */
