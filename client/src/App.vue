@@ -24,8 +24,4 @@ body {
   user-select: none;
   background: linear-gradient(to left top, rgb(132, 133, 216), rgb(233, 235, 250)) no-repeat;
 }
-
-.main {
-  height: calc(100vh - 70px);
-}
 </style>

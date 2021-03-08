@@ -1,6 +1,6 @@
 <template>
   <div
-      class="flex h-full relative justify-center items-center p-5 overflow-hidden p-0 m-0"
+      class="flex h-full relative justify-center items-center p-5 overflow-hidden pt-16"
       @contextmenu.prevent=""
       v-long-press="600"
       @long-press-start="onLongPressStart"
