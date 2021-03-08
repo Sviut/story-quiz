@@ -7,7 +7,7 @@
       @long-press-stop="onLongPressStop"
   >
     <ProgressBar
-        class="absolute top-5"
+        class="absolute top-10"
         :animationStopped="animationStopped"
         v-if="quizList && (currentQuizCard.type === 'question' || currentQuizCard.type === 'first')"
         :bar-count="progressBarsCount"
