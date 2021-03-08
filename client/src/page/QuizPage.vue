@@ -1,6 +1,6 @@
 <template>
   <div
-      class="flex h-full relative justify-center items-center p-5 overflow-hidden pt-16"
+      class="flex h-screen relative justify-center items-center p-5 overflow-hidden main"
       @contextmenu.prevent=""
       v-long-press="600"
       @long-press-start="onLongPressStart"
@@ -126,3 +126,9 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.main {
+  background: linear-gradient(to left top, rgb(132, 133, 216), rgb(233, 235, 250)) no-repeat;
+}
+</style>
