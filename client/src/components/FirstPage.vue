@@ -1,7 +1,7 @@
 <template>
   <div class="p-5">
     <div class="rounded-t-3xl max-w-2xl">
-      <img v-if="image" :src="image" class="rounded-t-3xl">
+      <img v-if="image" :src="image" class="rounded-t-3xl" @load="$emit('imageLoaded')">
     </div>
     <div class="flex flex-col items-center space-y-2 bg-white rounded-b-3xl p-2">
       <div class='text-center leading-4'>

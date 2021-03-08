@@ -15,9 +15,9 @@
     />
 
 
-    <div v-if="quizList" v-show="quizList">
+    <div v-if="quizList" v-show="quizList && isLoaded">
       <FirstPage
-          @imageLoaded="isLoaded = true"
+          @imageLoaded="onLoaded"
           :image="currentQuizCard.image"
           @clickOnButton="nextQuiz"
           v-if="currentQuizCard.type === 'first'"
@@ -39,7 +39,7 @@
           v-if="currentQuizCard.type === 'final'"
       />
     </div>
-    <Loader style="margin-top: 50%" v-else/>
+    <Loader v-else/>
   </div>
 </template>
 
