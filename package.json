@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "postinstallFALSE": "npm install --prefix ./server && npm run heroku-build --prefix ./client && npm run heroku-build --prefix ./panel",
+    "postinstall": "npm install --prefix ./server",
     "start": "npm run start --prefix ./server"
   },
   "author": "",
