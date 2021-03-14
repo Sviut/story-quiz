@@ -22,6 +22,7 @@
                 :type="showPassword ? 'text' : 'password'"
                 @click:append="showPassword = !showPassword"
             ></v-text-field>
+            <v-btn prima>Войти</v-btn>
           </v-form>
         </v-card-text>
       </v-card>
