@@ -49,7 +49,7 @@ app.post("/api/new", function (req, res) {
 app.use("/images", express.static(path.join(__dirname, "images")));
 // app.use(serveStatic((__dirname + '/images/')))
 
-bot.launch();
+// bot.launch();
 
 const staticFileMiddleware = express.static(path.join(__dirname));
 app.use(staticFileMiddleware);
@@ -61,7 +61,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(serveStatic(__dirname + "/public/panel/"));
 
   app.get("/admin-panel/*", (res, req) =>
-    res.sendfile(__dirname + "/public/client/index.html")
+    res.sendfile(__dirname + "/public/panel/index.html")
   );
 
   app.get("*", (res, req) =>
