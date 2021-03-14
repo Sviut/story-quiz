@@ -57,16 +57,14 @@ app.use(history());
 app.use(staticFileMiddleware);
 
 if (process.env.NODE_ENV === "production") {
-  app.use(serveStatic(__dirname + "/public/client"));
-  app.use(serveStatic(__dirname + "/public/panel/"));
+  app.use(serveStatic(__dirname + "/client/"));
+  app.use(serveStatic(__dirname + "/panel/"));
 
-  app.get("/admin-panel/*", (res, req) =>
-    res.sendfile(__dirname + "/public/panel/index.html")
+  app.get("/panel/*", (res, req) =>
+    res.sendfile(__dirname + "/panel/index.html")
   );
 
-  app.get("*", (res, req) =>
-    res.sendfile(__dirname + "/public/client/index.html")
-  );
+  app.get(/.*/, (res, req) => res.sendfile(__dirname + "/client/index.html"));
 }
 
 app.use(errorHandler);
