@@ -1,17 +1,15 @@
-const path = require('path')
+const path = require("path");
 
 module.exports = {
-    outputDir: path.resolve(__dirname, '../server/panel'),
+  outputDir: path.resolve(__dirname, "../server/public/panel"),
 
-    devServer: {
-		proxy: {
-			'/api': {
-				target: 'http://localhost:5000',
-			},
-		},
-	},
+  devServer: {
+    proxy: {
+      "/api": {
+        target: "http://localhost:5000",
+      },
+    },
+  },
 
-    transpileDependencies: [
-      'vuetify'
-    ]
-}
+  transpileDependencies: ["vuetify"],
+};

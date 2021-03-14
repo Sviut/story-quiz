@@ -58,6 +58,12 @@ app.use(staticFileMiddleware);
 
 if (process.env.NODE_ENV === "production") {
   app.use(serveStatic(__dirname + "/public/client"));
+  app.use(serveStatic(__dirname + "/public/panel/"));
+
+  app.get("/admin-panel/*", (res, req) =>
+    res.sendfile(__dirname + "/public/client/index.html")
+  );
+
   app.get("*", (res, req) =>
     res.sendfile(__dirname + "/public/client/index.html")
   );
